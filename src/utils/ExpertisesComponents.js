@@ -15,6 +15,7 @@ const styles = theme => ({
         flexDirection: "row",
         justifyContent: "space-around",
         marginBottom: "20px",
+        width: "100%"
     },
 });
 
@@ -99,58 +100,6 @@ class ExpertisesComponents extends Component {
                         />
                     </Col>
                 </Row>
-                {/*<div className={classes.cards}>*/}
-                {/*    <CardCustom*/}
-                {/*        icon={<FindInPageIcon/>}*/}
-                {/*        title={"Détection du profil de l'apprenant"}*/}
-                {/*        description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +*/}
-                {/*        "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +*/}
-                {/*        "quae per multas difficilisque causas adfore iam sperabatur"}*/}
-                {/*        onclick={()=>{this.moreInfo("/studentProfil")}}*/}
-                {/*    />*/}
-                {/*    <CardCustom*/}
-                {/*        icon={<AccountCircleIcon/>}*/}
-                {/*        title={"Accompagnement et orientation scolaire"}*/}
-                {/*        description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +*/}
-                {/*        "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +*/}
-                {/*        "quae per multas difficilisque causas adfore iam sperabatur"}*/}
-                {/*        onclick={()=>{this.moreInfo("/scolarOrientation")}}*/}
-                {/*    />*/}
-                {/*    <CardCustom*/}
-                {/*        icon={<SchoolIcon/>}*/}
-                {/*        title={"Projet d’étude national ou international"}*/}
-                {/*        description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +*/}
-                {/*        "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +*/}
-                {/*        "quae per multas difficilisque causas adfore iam sperabatur"}*/}
-                {/*        onclick={()=>{this.moreInfo("/schoolProject")}}*/}
-                {/*    />*/}
-                {/*</div>*/}
-                {/*<div className={classes.cards}>*/}
-                {/*    <CardCustom*/}
-                {/*        icon={<MenuBookIcon/>}*/}
-                {/*        title={"Soutien scolaire (répétitions)"}*/}
-                {/*        description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +*/}
-                {/*        "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +*/}
-                {/*        "quae per multas difficilisque causas adfore iam sperabatur"}*/}
-                {/*        onclick={()=>{this.moreInfo("/tutoring")}}*/}
-                {/*    />*/}
-                {/*    <CardCustom*/}
-                {/*        icon={<AccountBalanceWalletIcon/>}*/}
-                {/*        title={"Caution étudiante à l’étranger"}*/}
-                {/*        description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +*/}
-                {/*        "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +*/}
-                {/*        "quae per multas difficilisque causas adfore iam sperabatur"}*/}
-                {/*        onclick={()=>{this.moreInfo("/studentDeposit")}}*/}
-                {/*    />*/}
-                {/*    <CardCustom*/}
-                {/*        icon={<HomeIcon/>}*/}
-                {/*        title={"Logement étudiant à l’étranger"}*/}
-                {/*        description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +*/}
-                {/*        "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +*/}
-                {/*        "quae per multas difficilisque causas adfore iam sperabatur"}*/}
-                {/*        onclick={()=>{this.moreInfo("/studentHousing")}}*/}
-                {/*    />*/}
-                {/*</div>*/}
             </div>
         );
     }

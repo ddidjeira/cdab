@@ -7,13 +7,15 @@ import {withStyles} from "@material-ui/core";
 
 const styles = theme => ({
     cardContainer:{
-        width: "500px",
+        width: "80%",
+        margin: "0 auto",
         borderRadius: 10,
         textAlign: "center",
         paddingLeft: "15px",
         paddingRight: "15px",
         boxShadow: "4px 4px 20px 0px rgba(146, 125, 250, 0.5)",
-        cursor: "pointer"
+        cursor: "pointer",
+        marginBottom: "5px"
     },
     iconCard: {
         fontSize: 14,

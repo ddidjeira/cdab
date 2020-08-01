@@ -158,13 +158,13 @@ class App extends Component {
 
                         <div className={classes.textAboutUs}>
                             <Grid item xs={1}></Grid>
-                            <Grid item xs={4} className={classes.txtUs}>
+                            <Grid alignItems={"center"} item xs={4} className={classes.txtUs}>
                                 La société éducative CDAB COMPASS, spécialisé aussi dans l’accompagnement et
                                 l’orientation des apprenants sur tous les plans scolaire, universitaire et même professionnel, accorde une importance à cette activité principale.
                                 En effet, elle détermine et constitue le
                                 socle des apprenants vers un monde professionnel adéquat. En la matière, il est doté d’une.
                             </Grid>
-                            <Grid item xs={2}>
+                            <Grid alignItems={"center"} item xs={2}>
                                 <a type="button"
                                    // className="btn btn-secondary btn-lg"
                                     className={classes.dwlPdf}
@@ -172,7 +172,7 @@ class App extends Component {
                                    download>Télécharger notre manuel
                                 </a>
                             </Grid>
-                            <Grid item xs={4}>
+                            <Grid alignItems={"center"} item xs={4}>
                                 <img style={{width: "100%"}}  src={require("./assets/lightbulb.jpg")} alt=""/>
                             </Grid>
                             <Grid item xs={1}></Grid>

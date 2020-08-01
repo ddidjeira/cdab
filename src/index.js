@@ -4,7 +4,7 @@ import './index.css';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Expertises from "./menu/Expertises";
+import Expertises from "./subMenu/Expertises";
 import StudentProfil from "./SubExpertises/StudentProfil";
 import ScolarOrientation from "./SubExpertises/ScolarOrientation";
 import SchoolProject from "./SubExpertises/SchoolProject";
