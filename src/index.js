@@ -11,12 +11,15 @@ import SchoolProject from "./SubExpertises/SchoolProject";
 import Tutoring from "./SubExpertises/Tutoring";
 import StudentDeposit from "./SubExpertises/StudentDeposit";
 import StudentHousing from "./SubExpertises/StudentHousing";
+import Register from "./connexion/Register";
+import Login from "./connexion/Login";
 
 const routing = (
     <Router>
         <div>
             <Switch>
                 <Route exact path="/" component={App}/>
+
                 <Route exact path="/expertises" component={Expertises}/>
                 <Route exact path="/expertises/studentProfil" component={StudentProfil}/>
                 <Route exact path="/expertises/scolarOrientation" component={ScolarOrientation}/>
@@ -24,6 +27,9 @@ const routing = (
                 <Route exact path="/expertises/tutoring" component={Tutoring}/>
                 <Route exact path="/expertises/studentDeposit" component={StudentDeposit}/>
                 <Route exact path="/expertises/studentHousing" component={StudentHousing}/>
+
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
                 {/*<Route path="/signUp" component={Register}/>*/}
                 {/*<PrivateRoute path="/home" component={Home}/>*/}
             </Switch>

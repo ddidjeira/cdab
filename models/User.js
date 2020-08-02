@@ -5,24 +5,20 @@ const config = require("../config/config");
 
 const userSchema = mongoose.Schema(
     {
-        name: {
+        lastName: {
             type: String,
             required: true
         },
-        // firstName: {
-        //     type: String,
-        //     required: true
-        // },
+        firstName: {
+            type: String,
+            required: true
+        },
         email: {
             type: String,
             required: true
         },
         password: {
             type: String,
-            required: true
-        },
-        cities: {
-            type: [String],
             required: true
         }
     },

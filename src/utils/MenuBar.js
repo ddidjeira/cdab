@@ -9,6 +9,7 @@ import {AccountCircle} from "@material-ui/icons";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from '@material-ui/core/Menu';
 import Popover from "@material-ui/core/Popover";
+import TokenApi from "./TokenApi";
 
 const styles = theme => ({
     logo:{
@@ -45,8 +46,15 @@ class MenuBar extends Component {
         super(props);
         this.state = {
             anchor: false,
-            // open: Boolean(this.state.anchor)
+            auth: false,
         };
+    }
+
+    componentDidMount() {
+        if(localStorage.getItem("token") !== null){
+            this.setState({auth: true})
+        }
+        alert("auth : "+this.state.auth + " token : "+localStorage.getItem("token"))
     }
 
     handleMenu = (e) => {
@@ -59,6 +67,11 @@ class MenuBar extends Component {
       this.setState({
           anchor: null,
       })
+    };
+
+    disconnect = () => {
+        TokenApi.logout();
+        window.location = "/login";
     };
 
     homePage = () => {
@@ -104,8 +117,17 @@ class MenuBar extends Component {
                         open={Boolean(this.state.anchor)}
                         onClose={this.handleClose}
                     >
-                        <Button className={classes.btnMenu} style={{display: "block",width:"100%"}} onClick={this.handleClose}>Connexion</Button>
-                        <Button className={classes.btnMenu} onClick={this.handleClose}>Inscription</Button>
+                        {!this.state.auth &&(
+                            <div>
+                                <Button className={classes.btnMenu} style={{display: "block",width:"100%"}} href="/login">Connexion</Button>
+                                <Button className={classes.btnMenu} href="/register">Inscription</Button>
+                            </div>
+                        )}
+                        {this.state.auth && (
+                            <div>
+                                <Button className={classes.btnMenu} onClick={this.disconnect}>Déconnexion</Button>
+                            </div>
+                        )}
                     </Popover>
                 </Toolbar>
             </AppBar>
