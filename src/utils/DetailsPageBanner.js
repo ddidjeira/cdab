@@ -6,11 +6,11 @@ const styles = theme => ({
         display: "flex",
         flexDirection: "column"
     },
-    profilImage:{
-        width: "100%",
-        height: "500px",
-        filter: "blur(2px)",
-    },
+    // profilImage:{
+    //     width: "100%",
+    //     height: "500px",
+    //     filter: "blur(2px)",
+    // },
     subHeader:{
         position: "relative",
         textAlign: "center"
@@ -36,11 +36,11 @@ class DetailsPageBanner extends Component {
     }
 
     render() {
-        const {classes, title} = this.props;
+        const {classes, title, image} = this.props;
         return (
             <div className={classes.subHeader}>
                 <div>
-                    <img className={classes.profilImage}  src={require("../assets/detailsPage.jpg")} alt=""/>
+                    {image}
                 </div>
                 <p className={classes.profilTitle}>{title}</p>
             </div>

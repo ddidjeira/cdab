@@ -41,9 +41,8 @@ class ExpertisesComponents extends Component {
                         <CardCustom
                             icon={<FindInPageIcon/>}
                             title={"Détection du profil de l'apprenant"}
-                            description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
-                            "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
-                            "quae per multas difficilisque causas adfore iam sperabatur"}
+                            description={"La phase détection du profil demeure un mystère pour certains et une partie de jeux pour d’autres.\n" +
+                            "En effet cette phase consiste à découvrir l’enfant et son environnement tout simplement."}
                             onclick={()=>{this.moreInfo("/studentProfil")}}
                         />
                     </Col>
@@ -51,19 +50,17 @@ class ExpertisesComponents extends Component {
                         <CardCustom
                             icon={<AccountCircleIcon/>}
                             title={"Accompagnement et orientation scolaire"}
-                            description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
-                            "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
-                            "quae per multas difficilisque causas adfore iam sperabatur"}
+                            description={"La structure éducative CDAB COMPASS, spécialisée aussi dans l’accompagnement et l’orientation des apprenants " +
+                            "sur tous les plans scolaire, universitaire et même professionnel, accorde une importance à cette expertise."}
                             onclick={()=>{this.moreInfo("/scolarOrientation")}}
                         />
                     </Col>
                     <Col xs={12} md={6} lg={4}>
                         <CardCustom
                             icon={<SchoolIcon/>}
-                            title={"Projet d’étude national ou international"}
-                            description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
-                            "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
-                            "quae per multas difficilisque causas adfore iam sperabatur"}
+                            title={"Projet d’étude national \n ou international"}
+                            description={"Un projet d’étude est une feuille de route permettant de profiler son parcours estudiantin. Le projet d’étude fait montre de" +
+                            "notre volonté à atteindre l’univers professionnel. Il comporte les aspirations post-bac et post-brevet des apprenants. "}
                             onclick={()=>{this.moreInfo("/schoolProject")}}
                         />
                     </Col>
@@ -72,10 +69,10 @@ class ExpertisesComponents extends Component {
                     <Col xs={12} md={6} lg={4}>
                         <CardCustom
                             icon={<MenuBookIcon/>}
-                            title={"Soutien scolaire (répétitions)"}
-                            description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
-                            "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
-                            "quae per multas difficilisque causas adfore iam sperabatur"}
+                            title={"Soutien scolaire - Répétition"}
+                            description={"Suivant les différentes caractéristiques de l’apprenant, un soutien scolaire à court (deux mois maximum) ou " +
+                            "moyen terme (mois alternatif) est mis en place. Il permet de travailler l’autonomie de ce dernier. Ce soutien scolaire " +
+                            "(encore appelée répétition) est libre et au rythme convenu avec la famille."}
                             onclick={()=>{this.moreInfo("/tutoring")}}
                         />
                     </Col>
@@ -83,9 +80,9 @@ class ExpertisesComponents extends Component {
                         <CardCustom
                             icon={<AccountBalanceWalletIcon/>}
                             title={"Caution étudiante à l’étranger"}
-                            description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
-                            "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
-                            "quae per multas difficilisque causas adfore iam sperabatur"}
+                            description={"Dans le souci de propulser le projet d’étude des apprenants ou parents de CDABCOMPASS, " +
+                            "la société éducative offre une caution bancaire aux apprenants désireux de faire leurs études à l’étranger" +
+                            " par exemple en France."}
                             onclick={()=>{this.moreInfo("/studentDeposit")}}
                         />
                     </Col>
@@ -93,9 +90,9 @@ class ExpertisesComponents extends Component {
                         <CardCustom
                             icon={<HomeIcon/>}
                             title={"Logement étudiant à l’étranger"}
-                            description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
-                            "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
-                            "quae per multas difficilisque causas adfore iam sperabatur"}
+                            description={"L’accompagnement hébergement consiste pour CDAB COMPASS à alléger la tâche et le souci" +
+                            " de la recherche d’un logement, aux apprenants. Ainsi la structure prend sur elle la charge de faire la" +
+                            " recherche des logements aux apprenants. Ces logements répondent au standard minimum requis pour le logement étudiant en France "}
                             onclick={()=>{this.moreInfo("/studentHousing")}}
                         />
                     </Col>

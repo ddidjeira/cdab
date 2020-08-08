@@ -38,8 +38,8 @@ class Expertises extends Component {
                 </div>
                 <div style={{marginTop: "200px"}}>
                     <div className={classes.titles}>
-                        <p className={classes.title}>Nos expertises</p>
-                        <p className={classes.subTitle}>Nous vous accompagnons durant chacun de ses processus</p>
+                        <p className={classes.title}>NOS EXPERTISES</p>
+                        <p className={classes.subTitle}>Nous vous accompagnons durant chacun de ces processus</p>
                     </div>
                     <ExpertisesComponents/>
                 </div>

@@ -54,7 +54,7 @@ class MenuBar extends Component {
         if(localStorage.getItem("token") !== null){
             this.setState({auth: true})
         }
-        alert("auth : "+this.state.auth + " token : "+localStorage.getItem("token"))
+        //alert("auth : "+this.state.auth + " token : "+localStorage.getItem("token"))
     }
 
     handleMenu = (e) => {
@@ -89,10 +89,11 @@ class MenuBar extends Component {
                         Cdab Compass
                     </Typography>
                     <Button className={classes.btnMenu} href="/expertises" color="inherit">Nos expertises</Button>
-                    <Button className={classes.btnMenu} href="/signUp" color="inherit">Training</Button>
-                    <Button className={classes.btnMenu} href="/signUp" color="inherit">Coach-cdab</Button>
+                    <Button className={classes.btnMenu} href="/training" color="inherit">Traning</Button>
+                    <Button className={classes.btnMenu} href="/coaching" color="inherit">Coach-cdab</Button>
                     <Button className={classes.btnMenu} href="/signUp" color="inherit">Nos produits</Button>
-                    <Button className={classes.btnMenu} href="/signUp" color="inherit">Nos locaux</Button>
+                    <Button className={classes.btnMenu} href="/achievements" color="inherit">Nos réalisations</Button>
+                    <Button className={classes.btnMenu} href="/office" color="inherit">Nos locaux</Button>
                     <IconButton className={classes.btnMenu}
                         aria-label="account of current user"
                         aria-controls="menu-appbar"

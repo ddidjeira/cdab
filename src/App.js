@@ -1,17 +1,14 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
 import 'bootstrap/dist/css/bootstrap.css';
-import {Carousel} from "react-bootstrap";
+import {Carousel, Col, Modal, Row} from "react-bootstrap";
 import CardActu from "./utils/CardActu";
 import MenuBar from "./utils/MenuBar";
-import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import ExpertisesComponents from "./utils/ExpertisesComponents";
-import Pdf from '../src/othersfiles/cdabCompass.pdf';
+import Pdf from '../src/othersfiles/manuel.pdf';
+import Button from "react-bootstrap/Button";
+// import Modal from "@material-ui/core/Modal";
 
 const styles = theme => ({
     container: {
@@ -35,7 +32,7 @@ const styles = theme => ({
         alignItems: "center",
     },
     eachCarousel:{
-        height: "100%",
+        height: "550px",
         width: "100%"
     },
     carousell:{
@@ -80,7 +77,8 @@ const styles = theme => ({
         display: "flex",
         textAlign: "center",
         flexDirection: "row",
-        justifyContent: "space-evenly"
+        justifyContent: "space-evenly",
+        width: "100%"
     },
     aboutUs: {
         display: "flex",
@@ -98,7 +96,7 @@ const styles = theme => ({
     textAboutUs:{
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "black",
+        backgroundColor: "#E58F1E",
         color: "white"
     },
     txtUs:{
@@ -122,9 +120,22 @@ const styles = theme => ({
             textDecoration: "none",
             color: "#EDBA2D",
         }
+    },
+    videoPres:{
+        // width: "80%",
+        // height: "80%",
+        // margin: "7% auto",
+
+        textAlign: "center",
+        height: "100%",
+        paddingTop: "8%",
+    },
+    ModalContent:{
+        width: "700px",
+        marginTop: '10%',
+        marginBottom: '10%',
+        maxWidth: "50% !important"
     }
-
-
 
 });
 
@@ -132,8 +143,19 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
+            openModal: false,
         };
     }
+
+    handleOpenModal = (e) =>{
+        this.setState({openModal: true});
+    };
+
+    handleCloseModal = (e) =>{
+        this.setState({openModal: false});
+    };
+
+
 
     render(){
         const {classes} = this.props;
@@ -145,43 +167,69 @@ class App extends Component {
                     </div>
                     <div className={classes.imageCarousel}>
                         <Carousel className={classes.carousell}>
-                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/car1.jpg")} alt=""/></Carousel.Item>
-                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/car3.jpg")} alt=""/></Carousel.Item>
-                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/car2.jpg")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P1.JPG")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P3.JPG")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P4.jpg")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P9.JPG")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P5.jpg")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P8.jpg")} alt=""/></Carousel.Item>
+                            {/*<Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P6.jpg")} alt=""/></Carousel.Item>*/}
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P10.JPG")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P7.jpg")} alt=""/></Carousel.Item>
                         </Carousel>
                     </div>
 
                     <div className={classes.aboutUs}>
                         <div style={{marginBottom: "100px"}}>
-                            <p className={classes.expTitle}>Qui sommes-nous ?</p>
+                            <p className={classes.expTitle}>QUI SOMMES-NOUS ?</p>
                         </div>
 
                         <div className={classes.textAboutUs}>
-                            <Grid item xs={1}></Grid>
-                            <Grid alignItems={"center"} item xs={4} className={classes.txtUs}>
-                                La société éducative CDAB COMPASS, spécialisé aussi dans l’accompagnement et
-                                l’orientation des apprenants sur tous les plans scolaire, universitaire et même professionnel, accorde une importance à cette activité principale.
-                                En effet, elle détermine et constitue le
-                                socle des apprenants vers un monde professionnel adéquat. En la matière, il est doté d’une.
+                            {/*<Grid item xs={1}></Grid>*/}
+                            <Grid alignItems={"center"} item xs={6} className={classes.txtUs}>
+                                La structure éducative CDAB COMPASS, spécialisée dans l’accompagnement et l’orientation des apprenants sur tous les plans scolaire,
+                                universitaire et même professionnel, aide les apprenants à renforcer leur niveau et à s’orienter pour atteindre leur objectif professionnel.
+                                En effet, elle détermine et constitue le socle des apprenants vers un monde professionnel adéquat. En la matière, elle est dotée d’une expérience
+                                de plus de dix ans (10 ans) ayant fait ses preuves en France, au Sénégal, en Côte d’Ivoire et au Togo.
                             </Grid>
-                            <Grid alignItems={"center"} item xs={2}>
+                            <Grid alignItems={"center"} item xs={1}>
                                 <a type="button"
                                    // className="btn btn-secondary btn-lg"
                                     className={classes.dwlPdf}
-                                   href={Pdf}
-                                   download>Télécharger notre manuel
+                                   // href={Pdf}
+                                   // target={"_blank"}
+                                    onClick={this.handleOpenModal}
+                                   >En savoir plus
                                 </a>
+                                <Modal dialogClassName ={classes.ModalContent} show={this.state.openModal} onHide={this.handleCloseModal}>
+                                    <Modal.Header closeButton>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <img style={{width: "100%"}}  src={require("./othersfiles/manuel.png")} alt=""/>
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={this.handleCloseModal}>
+                                            Close
+                                        </Button>
+                                    </Modal.Footer>
+                                </Modal>
                             </Grid>
-                            <Grid alignItems={"center"} item xs={4}>
-                                <img style={{width: "100%"}}  src={require("./assets/lightbulb.jpg")} alt=""/>
+                            <Grid alignItems={"center"} item xs={5}>
+                                {/*<img style={{width: "100%"}}  src={require("./assets/lightbulb.jpg")} alt=""/>*/}
+                                <div className={classes.videoPres}>
+                                    <iframe width="539" height="303" src="https://www.youtube.com/embed/MEswVvG8Atg"
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen></iframe>
+                                </div>
                             </Grid>
-                            <Grid item xs={1}></Grid>
+                            {/*<Grid item xs={1}></Grid>*/}
                         </div>
                     </div>
 
                     <div className={classes.expertises}>
                         <div style={{marginBottom: "100px"}}>
-                            <p className={classes.expTitle}>Nos expertises</p>
+                            <p className={classes.expTitle}>NOS EXPERTISES</p>
                         </div>
 
                         <ExpertisesComponents/>
@@ -190,46 +238,58 @@ class App extends Component {
                     <div className={classes.countries}>
                         <div style={{marginBottom: "50px",textAlign: "center"}}>
                             <p className={classes.sTitle}>Nous sommes actuellement présents dans 4 pays</p>
-                            <p className={classes.subTitle}>N’hésitez pas à nous contacter si vous avez des questions.</p>
                         </div>
 
                         <div className={classes.countriesFlag} style={{textAlign: "center"}}>
-                            <div><img title={"Togo"} className={classes.drapeau}  src={require("./assets/tg.png")} alt=""/></div>
-                            <div><img title={"Côte d'ivoir"} className={classes.drapeau}  src={require("./assets/ci.png")} alt=""/></div>
-                            <div><img title={"Sénegal"}  className={classes.drapeau}  src={require("./assets/sn.png")} alt=""/></div>
                             <div><img title={"France"} className={classes.drapeau}  src={require("./assets/fr.png")} alt=""/></div>
+                            <div><img title={"Sénegal"}  className={classes.drapeau}  src={require("./assets/sn.png")} alt=""/></div>
+                            <div><img title={"Côte d'ivoir"} className={classes.drapeau}  src={require("./assets/ci.png")} alt=""/></div>
+                            <div><img title={"Togo"} className={classes.drapeau}  src={require("./assets/tg.png")} alt=""/></div>
+                        </div>
+
+                        <div style={{marginTop: "50px",textAlign: "center"}}>
+                            <p className={classes.subTitle}>N’hésitez pas à nous contacter en ligne si vous êtes dans un autre pays.</p>
                         </div>
                     </div>
 
                     <div className={classes.actualite}>
                         <div style={{marginBottom: "50px",textAlign: "center"}}>
-                            <p className={classes.sTitle}>Nos actualités</p>
+                            <p className={classes.sTitle}>NOS ACTUALITES</p>
                         </div>
 
-                        <div className={classes.actu}>
-                            <div>
+                        <Row className={classes.actu}>
+                            <Col xs={12} md={6} lg={4}>
                                 <CardActu
-                                    image={<img style={{height: "100%"}} src={require("./assets/students4.jpg")} alt=""/>}
-                                    title={"Act-4596"}
-                                    description={"ntiochensi plebi suppliciter obsecranti ut inediae dispelleret metum" +
-                                    "ntiochensi plebi suppliciter obsecranti ut inediae dispelleret metum" +
-                                    "ntiochensi plebi suppliciter obsecranti ut inediae dispelleret metum"}
-                                    onclick={()=>{alert("redirect/cardActu1")}}
+                                    image={<img style={{height: "100%"}} src={require("./assets/actu1.jpg")} alt=""/>}
+                                    title={"L’importance d’un projet d’études bien élaboré"}
+                                    description={"La plupart du temps, l’échec des jeunes apprenants " +
+                                    "est dû au projet d’étude presque inexistant ou encore mal élaboré. " +
+                                    "Car beaucoup  se lancent dans les études sans une vision globale. …"}
+                                    onclick={()=>{window.location="/actu/1"}}
                                 />
-                            </div>
-                            <div>
+                            </Col>
+                            <Col xs={12} md={6} lg={4}>
                                 <CardActu
-                                    image={<img style={{height: "100%"}} src={require("./assets/students5.png")} alt=""/>}
-                                    title={"Act-99d8"}
-                                    description={"ntiochensi plebi suppliciter obsecranti ut inediae dispelleret metum" +
-                                    "ntiochensi plebi suppliciter obsecranti ut inediae dispelleret metum" +
-                                    "ntiochensi plebi suppliciter obsecranti ut inediae dispelleret metum"}
-                                    onclick={()=>{alert("redirect/cardActu2")}}
+                                    image={<img style={{height: "100%"}} src={require("./assets/actu2.jpg")} alt=""/>}
+                                    title={"La motivation : paramètre utile de réussite"}
+                                    description={"L’une des causes les plus courantes de l’échec est de" +
+                                    " commencer un projet sans le terminer.  L’absence de motivation en " +
+                                    "est l’une des raisons. Cela arrive à tout un chacun …"}
+                                    onclick={()=>{window.location="/actu/2"}}
                                 />
-                            </div>
-                        </div>
+                            </Col>
+                            <Col xs={12} md={6} lg={4}>
+                                <CardActu
+                                    image={<img style={{height: "100%"}} src={require("./assets/actu3.jpg")} alt=""/>}
+                                    title={"L’importance d’une bonne orientation"}
+                                    description={"Un projet professionnel se définit d’après les objectifs " +
+                                    "professionnels qui sont eux-mêmes le bilan du vécu, de la personnalité, des " +
+                                    "intérêts, des aptitudes, des motivations et des valeurs. Toute prise …"}
+                                    onclick={()=>{window.location="/actu/3"}}
+                                />
+                            </Col>
+                        </Row>
                     </div>
-
                 </div>
             </div>
         );

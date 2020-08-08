@@ -15,7 +15,8 @@ const styles = theme => ({
         paddingRight: "15px",
         boxShadow: "4px 4px 20px 0px rgba(146, 125, 250, 0.5)",
         cursor: "pointer",
-        marginBottom: "5px"
+        marginBottom: "5px",
+        height: "310px",
     },
     iconCard: {
         fontSize: 14,
@@ -24,6 +25,11 @@ const styles = theme => ({
     titleCard: {
         marginBottom: "10px",
         marginTop: "30px",
+        color: "black",
+        fontWeight: 700,
+        borderBottom: "5px solid",
+        borderColor: "#ff8227 !important",
+        whiteSpace: "pre-line"
     },
     description: {
         marginBottom: "20px",
@@ -41,7 +47,7 @@ class CardCustom extends Component {
                         <Typography className={classes.iconCard} color="textSecondary" gutterBottom>
                             {icon}
                         </Typography>
-                        <Typography className={classes.titleCard} variant="h5" component="h2">
+                        <Typography style={{whiteSpace: "pre-line"}} className={classes.titleCard} variant="h5" component="h2">
                             {title}
                         </Typography>
                         <Typography className={classes.description} variant="body2" component="p">

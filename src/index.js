@@ -13,12 +13,25 @@ import StudentDeposit from "./SubExpertises/StudentDeposit";
 import StudentHousing from "./SubExpertises/StudentHousing";
 import Register from "./connexion/Register";
 import Login from "./connexion/Login";
+import Actu1 from "./article/Actu1";
+import Actu2 from "./article/Actu2";
+import Actu3 from "./article/Actu3";
+import Training from "./subMenu/Training";
+import Formations from "./SubTraining/Formations";
+import Intership from "./SubTraining/Intership";
+import Advices from "./SubTraining/Advices";
+import Offers from "./SubTraining/Offers";
+import Coaching from "./subMenu/Coaching";
+import Offices from "./subMenu/Offices";
 
 const routing = (
     <Router>
         <div>
             <Switch>
                 <Route exact path="/" component={App}/>
+
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
 
                 <Route exact path="/expertises" component={Expertises}/>
                 <Route exact path="/expertises/studentProfil" component={StudentProfil}/>
@@ -28,8 +41,20 @@ const routing = (
                 <Route exact path="/expertises/studentDeposit" component={StudentDeposit}/>
                 <Route exact path="/expertises/studentHousing" component={StudentHousing}/>
 
-                <Route path="/register" component={Register}/>
-                <Route path="/login" component={Login}/>
+                <Route exact path="/training" component={Training}/>
+                <Route exact path="/training/formations" component={Formations}/>
+                <Route exact path="/training/intership" component={Intership}/>
+                <Route exact path="/training/advices" component={Advices}/>
+                <Route exact path="/training/offers" component={Offers}/>
+
+                <Route exact path="/coaching" component={Coaching}/>
+
+                <Route exact path="/office" component={Offices}/>
+
+                <Route exact path="/actu/1" component={Actu1}/>
+                <Route exact path="/actu/2" component={Actu2}/>
+                <Route exact path="/actu/3" component={Actu3}/>
+
                 {/*<Route path="/signUp" component={Register}/>*/}
                 {/*<PrivateRoute path="/home" component={Home}/>*/}
             </Switch>
