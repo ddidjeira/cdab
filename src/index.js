@@ -25,6 +25,7 @@ import Coaching from "./subMenu/Coaching";
 import Offices from "./subMenu/Offices";
 import Achievements from "./subMenu/Achievements";
 import CompanyVisits from "./SubAchievements/CompanyVisits";
+import Quiz from "./Quizz/Quiz";
 
 const routing = (
     <Router>
@@ -59,6 +60,9 @@ const routing = (
                 <Route exact path="/actu/1" component={Actu1}/>
                 <Route exact path="/actu/2" component={Actu2}/>
                 <Route exact path="/actu/3" component={Actu3}/>
+
+
+                <Route exact path="/test" component={Quiz}/>
 
                 {/*<Route path="/signUp" component={Register}/>*/}
                 {/*<PrivateRoute path="/home" component={Home}/>*/}
