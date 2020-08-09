@@ -59,36 +59,36 @@ class Office extends Component {
                     </div>
                     <div className={classes.offices}>
                         <div >
-                            <img title={"Côte d'ivoir"} className={classes.drapeau}  src={require("../assets/ci.png")} alt=""/>
-                            <h3 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Côte d'ivoir</h3>
-                            <img title={"Côte d'ivoir"} className={classes.drapeau}  src={require("../assets/ci.png")} alt=""/>
+                            <img title={"Côte d'ivoire"} className={classes.drapeau}  src={require("../assets/ci.png")} alt=""/>
+                            <h3 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Côte d'ivoire</h3>
+                            <img title={"Côte d'ivoire"} className={classes.drapeau}  src={require("../assets/ci.png")} alt=""/>
                             <Row className={classes.loc}>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci1.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci1.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci2.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci2.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci3.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci3.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci4.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci4.jpg")} alt=""/>
                                 </Col>
                             </Row>
 
                             <Row className={classes.loc}>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci5.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci5.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci6.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci6.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci7.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci7.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoir"} className={classes.locaux}  src={require("../assets/Ci8.jpg")} alt=""/>
+                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci8.jpg")} alt=""/>
                                 </Col>
                             </Row>
                         </div>

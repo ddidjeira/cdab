@@ -243,7 +243,7 @@ class App extends Component {
                         <div className={classes.countriesFlag} style={{textAlign: "center"}}>
                             <div><img title={"France"} className={classes.drapeau}  src={require("./assets/fr.png")} alt=""/></div>
                             <div><img title={"Sénegal"}  className={classes.drapeau}  src={require("./assets/sn.png")} alt=""/></div>
-                            <div><img title={"Côte d'ivoir"} className={classes.drapeau}  src={require("./assets/ci.png")} alt=""/></div>
+                            <div><img title={"Côte d'ivoire"} className={classes.drapeau}  src={require("./assets/ci.png")} alt=""/></div>
                             <div><img title={"Togo"} className={classes.drapeau}  src={require("./assets/tg.png")} alt=""/></div>
                         </div>
 

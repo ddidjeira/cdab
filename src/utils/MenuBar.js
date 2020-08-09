@@ -31,7 +31,8 @@ const styles = theme => ({
     title: {
         flexGrow: 1,
         color: "#EDBA2D",
-        cursor: "pointer"
+        cursor: "pointer",
+        textAlign: "start"
     },
     btnMenu: {
         '&:hover': {
