@@ -9,7 +9,6 @@ const styles = theme => ({
         flexDirection: "column"
     },
     questions: {
-        height: "30px",
         width: "200px",
         border: "1px solid"
     },
@@ -17,7 +16,7 @@ const styles = theme => ({
         height: "30px",
         width: "200px",
         border: "1px solid",
-        backgroundColor: "red"
+        backgroundColor: "#ffc10773"
     }
 });
 
@@ -30,7 +29,14 @@ class Quiz extends Component {
             options: [],
             quizEnd: false,
             score: 0,
-            disabled: true
+            disabled: true,
+            userType: "",
+            typeT : 0,
+            typeR : 0,
+            typeI : 0,
+            typeC : 0,
+            typeA : 0,
+            typeM : 0,
         };
     }
 
@@ -40,49 +46,76 @@ class Quiz extends Component {
             return {
                 question: QuizData[currentIndex].question,
                 options: QuizData[currentIndex].options,
-                answer: QuizData[currentIndex].answer
+                answer: QuizData[currentIndex].answer,
+                type: QuizData[currentIndex].type
             }
         })
     };
 
+    result = () => {
+
+        alert(
+            "typeT : "+this.state.typeT+
+            "\ntypeR : "+this.state.typeR+
+            "\ntypeI : "+this.state.typeI+
+            "\ntypeC : "+this.state.typeC+
+            "\ntypeA : "+this.state.typeA+
+            "\ntypeM : "+this.state.typeM
+        );
+    };
+
     finishHandler = () =>{
-        const {userAnswer,answer,score,quizEnd} = this.state;
+        const {userAnswer,answer,score,quizEnd,userType,
+            typeT,typeR,typeI,typeC,typeA,typeM,
+        } = this.state;
         if(userAnswer === answer){
             this.setState({
                 score: score+1
             });
         }
+
+        if(userType === "T"){this.setState({typeT: typeT+1});
+        }else if(userType === "R"){this.setState({typeR: typeR+1});
+        }else if(userType === "I"){this.setState({typeI: typeI+1});
+        }else if(userType === "C"){this.setState({typeC: typeC+1});
+        }else if(userType === "A"){this.setState({typeA: typeA+1});
+        }else if(userType === "M"){this.setState({typeM: typeM+1});
+        }
+
         if(this.state.currentIndex === QuizData.length -1){
             this.setState({
                 quizEnd: true
             });
         }
-
-
-        console.log(
-            "userAnswer : "+this.state.userAnswer+
-            "answer : "+this.state.answer+
-            "score : "+this.state.score
-        );
-
     };
 
     nextQuestionHandler = () => {
-        const {userAnswer, answer, score} = this.state;
+        const {userAnswer,answer,score,userType,
+            typeT,typeR,typeI,typeC,typeA,typeM,
+        } = this.state;
         if(userAnswer === answer){
             this.setState({
                 score: score+1
-            })
+            });
         }
+        if(userType === "T"){this.setState({typeT: typeT+1});
+        }else if(userType === "R"){this.setState({typeR: typeR+1});
+        }else if(userType === "I"){this.setState({typeI: typeI+1});
+        }else if(userType === "C"){this.setState({typeC: typeC+1});
+        }else if(userType === "A"){this.setState({typeA: typeA+1});
+        }else if(userType === "M"){this.setState({typeM: typeM+1});
+        }
+
         this.setState({
             currentIndex: this.state.currentIndex + 1,
             userAnswer: null
         });
 
-        alert(
+        console.log(
             "userAnswer : "+userAnswer+
             " answer : "+answer+
-            " score : "+score
+            " score : "+score+
+            " type : "+userType
         );
     };
 
@@ -90,9 +123,11 @@ class Quiz extends Component {
         this.loadQuiz();
     }
 
-    checkAnswer = answer => {
+    checkAnswer = (answer,userType) => {
+        // alert("as : "+answer+ " userType : "+userType);
         this.setState({
             userAnswer: answer,
+            userType: userType,
             disabled: false
         })
     };
@@ -104,7 +139,8 @@ class Quiz extends Component {
                 return {
                     question: QuizData[currentIndex].question,
                     options: QuizData[currentIndex].options,
-                    answer: QuizData[currentIndex].answer
+                    answer: QuizData[currentIndex].answer,
+                    type: QuizData[currentIndex].type
                 }
             })
         }
@@ -112,7 +148,7 @@ class Quiz extends Component {
 
     render() {
         const {classes} = this.props;
-        const {question,options,currentIndex,userAnswer,quizEnd} = this.state;
+        const {question,options,currentIndex,userAnswer,quizEnd,type} = this.state;
         return (
             <div className={classes.container}>
                 <div>
@@ -122,9 +158,9 @@ class Quiz extends Component {
                     <h1>{question}</h1>
                     <span>Question {currentIndex+1} / {QuizData.length}</span>
                     {
-                        options.map(option =>
+                        options.map((option,index) =>
                             <p key={option.id} className={this.state.userAnswer === option? classes.questionSelected : classes.questions}
-                               onClick={()=> this.checkAnswer(option)}
+                               onClick={()=> this.checkAnswer(option,type[index])}
                             >
                                 {option}
                             </p>
@@ -140,11 +176,18 @@ class Quiz extends Component {
                     }
 
                     {currentIndex === QuizData.length - 1 &&
-                        <button disabled={this.state.disabled}
-                                onClick={this.finishHandler}
-                        >
-                            Submit
-                        </button>
+                        <div>
+                            <button disabled={this.state.disabled}
+                                     onClick={this.finishHandler}
+                             >
+                                 Submit
+                            </button>
+                            <br/>
+                            <button onClick={this.result}>
+                                Resultat
+                            </button>
+                        </div>
+
                     }
                 </div>
             </div>

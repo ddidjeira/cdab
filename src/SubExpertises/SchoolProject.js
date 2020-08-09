@@ -50,7 +50,7 @@ class SchoolProject extends Component {
                 </div>
                 <div style={{marginTop: "100px",marginBottom: "100px"}}>
                     <DetailsPageBanner
-                        image={<img className={classes.profilImage}  src={require("../assets/P4.jpg")} alt=""/>}
+                        image={<img className={classes.profilImage}  src={require("../assets/P7.jpg")} alt=""/>}
                         title={"Le projet d'étude national ou internationnel"}/>
                     <div className={classes.subContext}>
                         <div className={classes.subContainer}>

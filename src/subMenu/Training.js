@@ -52,7 +52,7 @@ class Training extends Component {
                 </div>
                 <div style={{marginTop: "200px"}}>
                     <div className={classes.titles}>
-                        <p className={classes.title}>TRANING</p>
+                        <p className={classes.title}>TRAINING</p>
                     </div>
                     <Row className={classes.cards}>
                         <Col xs={12} md={6} lg={5}>
@@ -80,7 +80,7 @@ class Training extends Component {
                         <Col xs={12} md={6} lg={5}>
                             <CardCustom
                                 icon={<ReceiptIcon/>}
-                                title={"Conseils - Cvs - Lettres de motivations"}
+                                title={"Conseils - CV - Lettre de motivation"}
                                 description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
                                 "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
                                 "quae per multas difficilisque causas adfore iam sperabatur"}

@@ -167,7 +167,7 @@ class App extends Component {
                     </div>
                     <div className={classes.imageCarousel}>
                         <Carousel className={classes.carousell}>
-                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P1.JPG")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P14.jpg")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P3.JPG")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P4.jpg")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P9.JPG")} alt=""/></Carousel.Item>

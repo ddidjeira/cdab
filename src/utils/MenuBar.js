@@ -90,7 +90,7 @@ class MenuBar extends Component {
                         Cdab Compass
                     </Typography>
                     <Button className={classes.btnMenu} href="/expertises" color="inherit">Nos expertises</Button>
-                    <Button className={classes.btnMenu} href="/training" color="inherit">Traning</Button>
+                    <Button className={classes.btnMenu} href="/training" color="inherit">Training</Button>
                     <Button className={classes.btnMenu} href="/coaching" color="inherit">Coach-cdab</Button>
                     <Button className={classes.btnMenu} href="/signUp" color="inherit">Nos produits</Button>
                     <Button className={classes.btnMenu} href="/achievements" color="inherit">Nos réalisations</Button>
