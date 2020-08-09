@@ -50,7 +50,7 @@ class Tutoring extends Component {
                 </div>
                 <div style={{marginTop: "100px",marginBottom: "100px"}}>
                     <DetailsPageBanner
-                        image={<img className={classes.profilImage} src={require("../assets/P3.JPG")} alt=""/>}
+                        image={<img className={classes.profilImage} src={require("../assets/soutien.png")} alt=""/>}
                         title={"Soutiens scolaires (repetitions)"}/>
                     <div className={classes.subContext}>
                         <div className={classes.subContainer}>

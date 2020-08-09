@@ -23,6 +23,7 @@ import Advices from "./SubTraining/Advices";
 import Offers from "./SubTraining/Offers";
 import Coaching from "./subMenu/Coaching";
 import Offices from "./subMenu/Offices";
+import Achievements from "./subMenu/Achievements";
 
 const routing = (
     <Router>
@@ -50,6 +51,8 @@ const routing = (
                 <Route exact path="/coaching" component={Coaching}/>
 
                 <Route exact path="/office" component={Offices}/>
+
+                <Route exact path="/achievements" component={Achievements}/>
 
                 <Route exact path="/actu/1" component={Actu1}/>
                 <Route exact path="/actu/2" component={Actu2}/>

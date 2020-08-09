@@ -50,7 +50,7 @@ class StudentHousing extends Component {
                 </div>
                 <div style={{marginTop: "100px",marginBottom: "100px"}}>
                     <DetailsPageBanner
-                        image={<img className={classes.profilImage}  src={require("../assets/P9.JPG")} alt=""/>}
+                        image={<img className={classes.profilImage}  src={require("../assets/Lg1.jpeg")} alt=""/>}
                         title={"Logement Etudiant à l'étranger"}/>
                     <div className={classes.subContext}>
                         <div className={classes.subContainer}>
