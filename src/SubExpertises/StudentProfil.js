@@ -39,8 +39,25 @@ class StudentProfil extends Component {
     constructor(props){
         super(props);
         this.state = {
+            auth: false,
         };
     }
+
+    componentDidMount() {
+        if(localStorage.getItem("token") !== null){
+            this.setState({auth: true})
+        }
+        //alert("auth : "+this.state.auth + " token : "+localStorage.getItem("token"))
+    }
+
+    firstTest = () =>{
+        if(localStorage.getItem("token") !== null){
+            window.location.href = '/Quiz1';
+        }else{
+            alert("Veuillez tout d'abord créer un compte ou vous connecter!");
+            window.location.href = '/login';
+        }
+    };
 
     render() {
         const {classes} = this.props;
@@ -79,7 +96,11 @@ class StudentProfil extends Component {
                                 </p>
                             </div>
                         </div>
-                        <Button className={classes.btnQuiz} >Passer le test</Button>
+                        <Button className={classes.btnQuiz}
+                                onClick={this.firstTest}
+                        >
+                            Passer le test
+                        </Button>
                     </div>
                 </div>
             </div>

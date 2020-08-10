@@ -64,7 +64,7 @@ const routing = (
                 <Route exact path="/actu/3" component={Actu3}/>
 
 
-                <Route exact path="/test" component={Quiz}/>
+                <Route exact path="/Quiz1" component={Quiz}/>
 
                 {/*<Route path="/signUp" component={Register}/>*/}
                 {/*<PrivateRoute path="/home" component={Home}/>*/}

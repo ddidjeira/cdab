@@ -92,7 +92,7 @@ class Login extends Component {
                                 type={"password"}
                                 required={true}
                             />
-                            <Button type="submit" variant="contained">Créer mon compte</Button>
+                            <Button type="submit" variant="contained">CONNEXION</Button>
                         </form>
                     </div>
                 </div>
