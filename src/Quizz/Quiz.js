@@ -2,21 +2,42 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core";
 import MenuBar from "../utils/MenuBar";
 import QuizData from "./QuizData";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
     container: {
         display: "flex",
         flexDirection: "column"
     },
+    containerQuizs:{
+        width: "1020px",
+        height: "380px",
+        textAlign: "center",
+        boxShadow: "4px 4px 20px 0px rgb(212 198 74 / 64%)",
+        borderRadius: 10,
+        padding: "15px",
+        backgroundColor: "#ffc10700",
+        marginBottom: "10px"
+    },
     questions: {
         width: "200px",
-        border: "1px solid"
+        border: "1px solid",
+        padding: "12px",
+        textAlign: "center",
+        marginBottom: "15px",
+        margin: "0 auto"
     },
     questionSelected: {
-        height: "30px",
         width: "200px",
         border: "1px solid",
-        backgroundColor: "#ffc10773"
+        padding: "12px",
+        textAlign: "center",
+        backgroundColor: "#ffc10773",
+        marginBottom: "15px",
+        margin: "0 auto"
+    },
+    optionDiv: {
+        cursor: "pointer"
     }
 });
 
@@ -87,6 +108,8 @@ class Quiz extends Component {
                 quizEnd: true
             });
         }
+
+        this.result();
     };
 
     nextQuestionHandler = () => {
@@ -108,7 +131,8 @@ class Quiz extends Component {
 
         this.setState({
             currentIndex: this.state.currentIndex + 1,
-            userAnswer: null
+            userAnswer: null,
+            disabled: true
         });
 
         console.log(
@@ -154,41 +178,42 @@ class Quiz extends Component {
                 <div>
                     <MenuBar/>
                 </div>
-                <div style={{marginTop: "200px"}}>
-                    <h1>{question}</h1>
-                    <span>Question {currentIndex+1} / {QuizData.length}</span>
-                    {
-                        options.map((option,index) =>
-                            <p key={option.id} className={this.state.userAnswer === option? classes.questionSelected : classes.questions}
-                               onClick={()=> this.checkAnswer(option,type[index])}
-                            >
-                                {option}
-                            </p>
-                        )
-                    }
+                <div style={{marginTop: "200px",
+                    marginRight: "auto",
+                    marginLeft: "auto",}}>
+                    <div className={classes.containerQuizs}>
+                        <h1 style={{color: "#b36233"}}>Questionnaire N°1 : votre manière d’être</h1>
+                        <h3>{question}</h3>
+                        <span>Question {currentIndex+1} / {QuizData.length}</span>
+                        {
+                            options.map((option,index) =>
+                                <div key={option.id} className={this.state.userAnswer === option? classes.questionSelected : classes.questions}
+                                     onClick={()=> this.checkAnswer(option,type[index])}
+                                >
+                                    <div className={classes.optionDiv}>{option}</div>
+                                </div>
 
-                    {currentIndex < QuizData.length - 1 &&
-                        <button disabled={this.state.disabled}
+                            )
+                        }
+
+                        {currentIndex < QuizData.length - 1 &&
+                        <Button variant="contained" disabled={this.state.disabled}
                                 onClick={this.nextQuestionHandler}
                         >
-                            Next question
-                        </button>
-                    }
+                            Suivante
+                        </Button>
+                        }
 
-                    {currentIndex === QuizData.length - 1 &&
+                        {currentIndex === QuizData.length - 1 &&
                         <div>
-                            <button disabled={this.state.disabled}
-                                     onClick={this.finishHandler}
-                             >
-                                 Submit
-                            </button>
-                            <br/>
-                            <button onClick={this.result}>
-                                Resultat
-                            </button>
+                            <Button variant="contained" disabled={this.state.disabled}
+                                    onClick={this.finishHandler}
+                            >
+                                Envoyer
+                            </Button>
                         </div>
-
-                    }
+                        }
+                    </div>
                 </div>
             </div>
         );
