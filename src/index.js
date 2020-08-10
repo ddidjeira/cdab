@@ -26,6 +26,7 @@ import Offices from "./subMenu/Offices";
 import Achievements from "./subMenu/Achievements";
 import CompanyVisits from "./SubAchievements/CompanyVisits";
 import Quiz from "./Quizz/Quiz";
+import Testimonials from "./SubAchievements/Testimonials";
 
 const routing = (
     <Router>
@@ -56,6 +57,7 @@ const routing = (
 
                 <Route exact path="/achievements" component={Achievements}/>
                 <Route exact path="/achievements/companyVisits" component={CompanyVisits}/>
+                <Route exact path="/achievements/testimonials" component={Testimonials}/>
 
                 <Route exact path="/actu/1" component={Actu1}/>
                 <Route exact path="/actu/2" component={Actu2}/>

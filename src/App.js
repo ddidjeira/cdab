@@ -168,12 +168,11 @@ class App extends Component {
                     <div className={classes.imageCarousel}>
                         <Carousel className={classes.carousell}>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P14.jpg")} alt=""/></Carousel.Item>
-                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P3.JPG")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P4.jpg")} alt=""/></Carousel.Item>
+                            <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P3.JPG")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P9.JPG")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P5.jpg")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P8.jpg")} alt=""/></Carousel.Item>
-                            {/*<Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P6.jpg")} alt=""/></Carousel.Item>*/}
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P10.JPG")} alt=""/></Carousel.Item>
                             <Carousel.Item ><img className={classes.eachCarousel}  src={require("./assets/P7.jpg")} alt=""/></Carousel.Item>
                         </Carousel>
@@ -194,10 +193,7 @@ class App extends Component {
                             </Grid>
                             <Grid alignItems={"center"} item xs={1}>
                                 <a type="button"
-                                   // className="btn btn-secondary btn-lg"
                                     className={classes.dwlPdf}
-                                   // href={Pdf}
-                                   // target={"_blank"}
                                     onClick={this.handleOpenModal}
                                    >En savoir plus
                                 </a>

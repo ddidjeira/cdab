@@ -36,7 +36,7 @@ class CompanyVisits extends Component {
                     <MenuBar/>
                 </div>
                 <div style={{marginTop: "200px"}}>
-                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Visites d'entreprises</h1>
+                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Hôpital</h1>
                     <Row className={classes.loc}>
                         <Col xs={12} md={6} lg={4}>
                             <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Vc1.jpg")} alt=""/>
@@ -58,6 +58,31 @@ class CompanyVisits extends Component {
                         </Col>
                         <Col xs={12} md={6} lg={4}>
                             <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Vc6.JPG")} alt=""/>
+                        </Col>
+                    </Row>
+                    <br/><br/>
+                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Radio Lomé</h1>
+                    <Row className={classes.loc}>
+                        <Col xs={12} md={6} lg={4}>
+                            <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Rl1.JPG")} alt=""/>
+                        </Col>
+                        <Col xs={12} md={6} lg={4}>
+                            <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Rl2.JPG")} alt=""/>
+                        </Col>
+                        <Col xs={12} md={6} lg={4}>
+                            <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Rl3.JPG")} alt=""/>
+                        </Col>
+                    </Row>
+                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Deloitte</h1>
+                    <Row className={classes.loc}>
+                        <Col xs={12} md={6} lg={4}>
+                            <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Del1.jpg")} alt=""/>
+                        </Col>
+                        <Col xs={12} md={6} lg={4}>
+                            <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Del2.jpg")} alt=""/>
+                        </Col>
+                        <Col xs={12} md={6} lg={4}>
+                            <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Del3.jpg")} alt=""/>
                         </Col>
                     </Row>
                 </div>

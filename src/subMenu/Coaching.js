@@ -46,7 +46,7 @@ const styles = theme => ({
     },
     textArt:{
         width: "50%",
-        textAlign: "justify"
+        textAlign: "justify",
     }
 });
 
