@@ -41,7 +41,7 @@ const styles = theme => ({
     }
 });
 
-class Quiz extends Component {
+class Quiz1 extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -221,4 +221,4 @@ class Quiz extends Component {
 }
 
 
-export default withStyles(styles)(Quiz);
+export default withStyles(styles)(Quiz1);

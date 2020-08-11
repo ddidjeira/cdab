@@ -25,8 +25,9 @@ import Coaching from "./subMenu/Coaching";
 import Offices from "./subMenu/Offices";
 import Achievements from "./subMenu/Achievements";
 import CompanyVisits from "./SubAchievements/CompanyVisits";
-import Quiz from "./Quizz/Quiz";
+import Quiz1 from "./Quizz/Quiz";
 import Testimonials from "./SubAchievements/Testimonials";
+import {PrivateRoute} from "./utils/PrivateRoute";
 
 const routing = (
     <Router>
@@ -64,10 +65,8 @@ const routing = (
                 <Route exact path="/actu/3" component={Actu3}/>
 
 
-                <Route exact path="/Quiz1" component={Quiz}/>
+                <PrivateRoute exact path="/Quiz1" component={Quiz1}/>
 
-                {/*<Route path="/signUp" component={Register}/>*/}
-                {/*<PrivateRoute path="/home" component={Home}/>*/}
             </Switch>
         </div>
     </Router>

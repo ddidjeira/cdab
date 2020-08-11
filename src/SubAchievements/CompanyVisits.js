@@ -36,7 +36,7 @@ class CompanyVisits extends Component {
                     <MenuBar/>
                 </div>
                 <div style={{marginTop: "200px"}}>
-                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Hôpital</h1>
+                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Polyclinique Internationale St. Joseph</h1>
                     <Row className={classes.loc}>
                         <Col xs={12} md={6} lg={4}>
                             <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Vc1.jpg")} alt=""/>
@@ -73,7 +73,7 @@ class CompanyVisits extends Component {
                             <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Rl3.JPG")} alt=""/>
                         </Col>
                     </Row>
-                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Deloitte</h1>
+                    <h1 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Deloitte - CFAO</h1>
                     <Row className={classes.loc}>
                         <Col xs={12} md={6} lg={4}>
                             <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Del1.jpg")} alt=""/>

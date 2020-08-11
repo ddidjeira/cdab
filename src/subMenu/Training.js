@@ -58,7 +58,7 @@ class Training extends Component {
                         <Col xs={12} md={6} lg={5}>
                             <CardCustom
                                 icon={<SchoolIcon/>}
-                                title={"Formations"}
+                                title={"Formation"}
                                 description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
                                 "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
                                 "quae per multas difficilisque causas adfore iam sperabatur"}
@@ -68,7 +68,7 @@ class Training extends Component {
                         <Col xs={12} md={6} lg={5}>
                             <CardCustom
                                 icon={<HomeWorkIcon/>}
-                                title={"Stages"}
+                                title={"Stage"}
                                 description={"Post haec Gallus Hierapolim profecturus ut expeditioni specie tenus adesset,\n" +
                                 "Antiochensi plebi suppliciter obsecranti ut inediae dispelleret metum,\n" +
                                 "quae per multas difficilisque causas adfore iam sperabatur"}
