@@ -63,7 +63,6 @@ class Quiz1 extends Component {
             typeA : 0,
             typeM : 0,
             personName: [],
-            personTotaux: []
         };
     }
 
@@ -92,11 +91,132 @@ class Quiz1 extends Component {
     };
 
     finishHandler = () =>{
-        const {userAnswer,answer,score,quizEnd,userType,personTotaux,
+        const {userAnswer,answer,score,quizEnd,userType,
             typeT,typeR,typeI,typeC,typeA,typeM,personName
         } = this.state;
 
-        alert("options : "+personName+ " value"+ personTotaux);
+        //alert("options : "+personName);
+        for(let i = 0; i<personName.length; i++){
+            if(personName[i] === "TRI"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeR: typeR+1,
+                    typeI: typeI+1
+                })
+            }else if(personName[i] === "TRC"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeR: typeR+1,
+                    typeC: typeC+1
+                })
+            }else if(personName[i] === "TRA"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeR: typeR+1,
+                    typeA: typeA+1
+                })
+            }else if(personName[i] === "TRM"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeR: typeR+1,
+                    typeM: typeM+1
+                })
+            }else if(personName[i] === "TIC"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeI: typeI+1,
+                    typeC: typeC+1
+                })
+            }
+
+            else if(personName[i] === "TIA"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeI: typeI+1,
+                    typeA: typeA+1
+                })
+            }else if(personName[i] === "TIM"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeI: typeI+1,
+                    typeM: typeM+1
+                })
+            }else if(personName[i] === "TCA"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeC: typeC+1,
+                    typeA: typeA+1
+                })
+            }else if(personName[i] === "TCM"){
+                this.setState({
+                    typeT: typeT+1,
+                    typeC: typeC+1,
+                    typeM: typeM+1
+                })
+            }
+
+            else if(personName[i] === "RIC"){
+                this.setState({
+                    typeR: typeR+1,
+                    typeI: typeI+1,
+                    typeC: typeC+1
+                })
+            }else if(personName[i] === "RIA"){
+                this.setState({
+                    typeR: typeR+1,
+                    typeI: typeI+1,
+                    typeA: typeA+1
+                })
+            }else if(personName[i] === "RIM"){
+                this.setState({
+                    typeR: typeR+1,
+                    typeI: typeI+1,
+                    typeM: typeM+1
+                })
+            }else if(personName[i] === "RCA"){
+                this.setState({
+                    typeR: typeR+1,
+                    typeC: typeC+1,
+                    typeA: typeA+1
+                })
+            }else if(personName[i] === "RCM"){
+                this.setState({
+                    typeR: typeR+1,
+                    typeC: typeC+1,
+                    typeM: typeM+1
+                })
+            }else if(personName[i] === "RAM"){
+                this.setState({
+                    typeR: typeR+1,
+                    typeA: typeA+1,
+                    typeM: typeM+1
+                })
+            }else if(personName[i] === "ICA"){
+                this.setState({
+                    typeI: typeI+1,
+                    typeC: typeC+1,
+                    typeA: typeA+1
+                })
+            }else if(personName[i] === "ICM"){
+                this.setState({
+                    typeI: typeI+1,
+                    typeC: typeC+1,
+                    typeM: typeM+1
+                })
+            }else if(personName[i] === "IAM"){
+                this.setState({
+                    typeI: typeI+1,
+                    typeA: typeA+1,
+                    typeM: typeM+1
+                })
+            }else if(personName[i] === "CAM"){
+                this.setState({
+                    typeC: typeC+1,
+                    typeA: typeA+1,
+                    typeM: typeM+1
+                })
+            }
+        }
 
 
         if(userAnswer === answer){
@@ -181,14 +301,11 @@ class Quiz1 extends Component {
     }
 
     handlerChangeSelect = (e) =>{
-        alert("target : "+JSON.stringify(e.target,null,4));
+        // alert("target : "+JSON.stringify(e.target,null,4));
         this.setState({
             personName: e.target.value,
-            personTotaux: e.target.value,
             disabled: false
         });
-
-        // alert("option : "+e.target.value+ " type : " +e.target.id)
     };
 
     render() {
@@ -218,21 +335,28 @@ class Quiz1 extends Component {
                     marginLeft: "auto",}}>
 
                     <div className={classes.containerQuizs}>
-                        <h1 style={{color: "#b36233"}}>Questionnaire N°1 : votre manière d’être</h1>
+                        <h1 style={{color: "#b36233"}}>Questionnaire</h1>
+                        {/*{0 < currentIndex < 29 &&*/}
+                        {/*<h1 style={{color: "#b36233"}}>Phase 1 : Votre manière d’être</h1>}*/}
+                        {/*{ 29 <= currentIndex <= 87 &&*/}
+                        {/*<h1 style={{color: "#b36233"}}>Phase 2 :  Vos types d’environnements privilégiés</h1>}*/}
+                        {/*{ 88 <= currentIndex <= 136 &&*/}
+                        {/*<h1 style={{color: "#b36233"}}>Phase 3 :  Vos loisirs de prédilection</h1>}*/}
+                        {/*{currentIndex > 136 &&*/}
+                        {/*<h1 style={{color: "#b36233"}}>Phase 4 :  Vos métiers de rêves</h1>}*/}
                         <h3>{question}</h3>
                         <span>Question {currentIndex+1} / {QuizData.length}</span>
-                        {currentIndex < 5 &&
+                        {currentIndex < 137 &&
                             options.map((option,index) =>
                                 <div key={option.id} className={this.state.userAnswer === option? classes.questionSelected : classes.questions}
                                      onClick={()=> this.checkAnswer(option,type[index])}
                                 >
                                     <div className={classes.optionDiv}>{option}</div>
                                 </div>
-
                             )
                         }
 
-                        {currentIndex >= 5 &&
+                        {currentIndex >= 137 &&
                             <div>
                                 <InputLabel id="demo-simple-select-label">Choisissez 5 métiers de vos rêves</InputLabel>
                                 <Select
