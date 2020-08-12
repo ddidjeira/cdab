@@ -3,6 +3,10 @@ import {withStyles} from "@material-ui/core";
 import MenuBar from "../utils/MenuBar";
 import QuizData from "./QuizData";
 import Button from "@material-ui/core/Button";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import Input from "@material-ui/core/Input";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const styles = theme => ({
     container: {
@@ -58,6 +62,8 @@ class Quiz1 extends Component {
             typeC : 0,
             typeA : 0,
             typeM : 0,
+            personName: [],
+            personTotaux: []
         };
     }
 
@@ -86,9 +92,13 @@ class Quiz1 extends Component {
     };
 
     finishHandler = () =>{
-        const {userAnswer,answer,score,quizEnd,userType,
-            typeT,typeR,typeI,typeC,typeA,typeM,
+        const {userAnswer,answer,score,quizEnd,userType,personTotaux,
+            typeT,typeR,typeI,typeC,typeA,typeM,personName
         } = this.state;
+
+        alert("options : "+personName+ " value"+ personTotaux);
+
+
         if(userAnswer === answer){
             this.setState({
                 score: score+1
@@ -170,22 +180,48 @@ class Quiz1 extends Component {
         }
     }
 
+    handlerChangeSelect = (e) =>{
+        alert("target : "+JSON.stringify(e.target,null,4));
+        this.setState({
+            personName: e.target.value,
+            personTotaux: e.target.value,
+            disabled: false
+        });
+
+        // alert("option : "+e.target.value+ " type : " +e.target.id)
+    };
+
     render() {
+        const names = [
+            'Oliver Hansen',
+            'Van Henry',
+            'April Tucker',
+            'Ralph Hubbard',
+            'Omar Alexander',
+            'Carlos Abbott',
+            'Miriam Wagner',
+            'Bradley Wilkerson',
+            'Virginia Andrews',
+            'Kelly Snyder',
+        ];
         const {classes} = this.props;
         const {question,options,currentIndex,userAnswer,quizEnd,type} = this.state;
+
         return (
             <div className={classes.container}>
                 <div>
                     <MenuBar/>
                 </div>
+                {/*ok*/}
                 <div style={{marginTop: "200px",
                     marginRight: "auto",
                     marginLeft: "auto",}}>
+
                     <div className={classes.containerQuizs}>
                         <h1 style={{color: "#b36233"}}>Questionnaire N°1 : votre manière d’être</h1>
                         <h3>{question}</h3>
                         <span>Question {currentIndex+1} / {QuizData.length}</span>
-                        {
+                        {currentIndex < 5 &&
                             options.map((option,index) =>
                                 <div key={option.id} className={this.state.userAnswer === option? classes.questionSelected : classes.questions}
                                      onClick={()=> this.checkAnswer(option,type[index])}
@@ -194,6 +230,25 @@ class Quiz1 extends Component {
                                 </div>
 
                             )
+                        }
+
+                        {currentIndex >= 5 &&
+                            <div>
+                                <InputLabel id="demo-simple-select-label">Choisissez 5 métiers de vos rêves</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    multiple
+                                    value={this.state.personName}
+                                    onChange={this.handlerChangeSelect}
+                                >
+                                    {options.map((option,index) => (
+                                        <MenuItem key={option.id} value={type[index]} className={classes.questions}>
+                                            {option}
+                                        </MenuItem>
+                                    ))}
+                                </Select>
+                            </div>
                         }
 
                         {currentIndex < QuizData.length - 1 &&
@@ -213,6 +268,7 @@ class Quiz1 extends Component {
                             </Button>
                         </div>
                         }
+
                     </div>
                 </div>
             </div>
