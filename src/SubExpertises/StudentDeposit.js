@@ -156,7 +156,7 @@ class StudentDeposit extends Component {
                                 horizontal: 'center',
                             }}
                             open={this.state.openAlert}
-                            autoHideDuration={10000}
+                            autoHideDuration={7000}
                             onClose={this.handleCloseAlert}
                             message="Veuillez tout d'abord vous connecter ou créer un compte !"
                             action={
