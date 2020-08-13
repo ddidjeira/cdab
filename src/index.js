@@ -28,6 +28,7 @@ import CompanyVisits from "./SubAchievements/CompanyVisits";
 import Quiz1 from "./Quizz/Quiz";
 import Testimonials from "./SubAchievements/Testimonials";
 import {PrivateRoute} from "./utils/PrivateRoute";
+import ActivityReport from "./SubAchievements/ActivityReport";
 
 const routing = (
     <Router>
@@ -59,6 +60,7 @@ const routing = (
                 <Route exact path="/achievements" component={Achievements}/>
                 <Route exact path="/achievements/companyVisits" component={CompanyVisits}/>
                 <Route exact path="/achievements/testimonials" component={Testimonials}/>
+                <Route exact path="/achievements/activityRepport" component={ActivityReport}/>
 
                 <Route exact path="/actu/1" component={Actu1}/>
                 <Route exact path="/actu/2" component={Actu2}/>
