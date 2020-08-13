@@ -20,6 +20,37 @@ const userSchema = mongoose.Schema(
         password: {
             type: String,
             required: true
+        },
+        number: {
+            type: String,
+            required: true
+        },
+        country: {
+            type: String,
+            required: true
+        },
+        city: {
+            type: String,
+            required: true
+        },
+        situation: {
+            type: String,
+            required: true
+        },
+        quizFirstStep: {
+            type: String,
+            required: true,
+            default: "false"
+        },
+        quizSecondStep: {
+            type: String,
+            required: true,
+            default: "false"
+        },
+        validSold: {
+            type: String,
+            required: true,
+            default: "false"
         }
     },
 );

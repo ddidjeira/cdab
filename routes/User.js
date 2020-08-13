@@ -10,6 +10,10 @@ route.post('/register', async (req,res) => {
     user.firstName = req.body.firstName;
     user.email = req.body.email;
     user.password = passwordHash.generate(req.body.password);
+    user.number = req.body.number;
+    user.country = req.body.country;
+    user.city = req.body.city;
+    user.situation = req.body.situation;
 
     if (validator.validate(user.email)){
         userModel.find({email : user.email}, async (err,docs)=>{
@@ -23,7 +27,13 @@ route.post('/register', async (req,res) => {
                         status: "200",
                         text : "New user added",
                         token : user.getToken(),
+                        lastName: user.lastName,
+                        firstName: user.firstName,
                         email: user.email,
+                        number: user.number,
+                        country: user.country,
+                        city: user.city,
+                        situation: user.situation,
                     });
                 });
             } else {
@@ -46,12 +56,19 @@ route.post('/login', async (req,res)=>{
     if (validator.validate(user.email)){
         userModel.find({email: user.email, password: user.password}, async ()=>{
             const findUser = await userModel.findOne({email: user.email});
+            console.log(findUser);
             if (!findUser){return res.status(409).json({text: "Mail error"})}
             if (findUser.authenticationPwd(req.body.password)) {
                 return res.status(200).json({
                     text: "You are connected",
                     token: user.getToken(),
-                    email: user.email,
+                    lastName: findUser.lastName,
+                    firstName: findUser.firstName,
+                    email: findUser.email,
+                    number: findUser.number,
+                    country: findUser.country,
+                    city: findUser.city,
+                    situation: findUser.situation,
                 })
             } else {
                 return res.status(409).json({text: "Password error"})

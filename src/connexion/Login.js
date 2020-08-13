@@ -48,6 +48,13 @@ class Login extends Component {
                 if(res.status === 200){
                     alert("Vous êtes connectés!!");
                     localStorage.setItem("token",res.data.token);
+                    localStorage.setItem("lastName",res.data.lastName);
+                    localStorage.setItem("firstName",res.data.firstName);
+                    localStorage.setItem("email",res.data.email);
+                    localStorage.setItem("number",res.data.number);
+                    localStorage.setItem("country",res.data.country);
+                    localStorage.setItem("city",res.data.city);
+                    localStorage.setItem("situation",res.data.situation);
                     window.location.href = "/";
                 }
             })

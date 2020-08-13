@@ -4,6 +4,9 @@ import MenuBar from "../utils/MenuBar";
 import InputCustom from "../utils/InputCustom";
 import Button from "@material-ui/core/Button";
 import axios from 'axios'
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
 
 const styles = theme => ({
     container: {
@@ -18,6 +21,16 @@ const styles = theme => ({
         margin: "auto",
         height: "700px"
     },
+    formControl: {
+        marginBottom: "10px",
+        width: "500px"
+    },
+    selectBorder: {
+        '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#E58F1E !important'
+        },
+        color: "black"
+    }
 });
 
 class Register extends Component {
@@ -29,12 +42,20 @@ class Register extends Component {
             errEmail: "",
             errPassword: "",
             errConPassword: "",
+            errNumber: "",
+            errCountry: "",
+            errCity: "",
+            errSituation: "",
 
             lastName: "",
             firstName: "",
             email: "",
             password: "",
-            confirmPassword: ""
+            confirmPassword: "",
+            number: "",
+            country: "",
+            city: "",
+            situation: ""
         };
     }
 
@@ -53,7 +74,11 @@ class Register extends Component {
                 lastName: this.state.lastName,
                 firstName: this.state.firstName,
                 email: this.state.email,
-                password: this.state.password
+                password: this.state.password,
+                number: this.state.number,
+                country: this.state.country,
+                city: this.state.city,
+                situation: this.state.situation,
             })
                 .then(res => {
                     console.log("data" + JSON.stringify(res.data));
@@ -124,6 +149,55 @@ class Register extends Component {
                                 type={"email"}
                                 required={true}
                             />
+                            <InputCustom
+                                name={"number"}
+                                value={this.state.number}
+                                placeholder="(+228) 9000005"
+                                errorText={this.state.errNumber}
+                                onChange={this.handleChange}
+                                type={"tel"}
+                                required={true}
+                            />
+                            <InputCustom
+                                name={"country"}
+                                value={this.state.country}
+                                placeholder="France"
+                                errorText={this.state.errCountry}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={true}
+                            />
+                            <InputCustom
+                                name={"city"}
+                                value={this.state.city}
+                                placeholder="Paris"
+                                errorText={this.state.errCity}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={true}
+                            />
+                            <FormControl variant="outlined" className={classes.formControl}>
+                                <InputLabel htmlFor="outlined-age-native-simple">Situation</InputLabel>
+                                <Select
+                                    native
+                                    value={this.state.situation}
+                                    onChange={this.handleChange}
+                                    label="situation"
+                                    inputProps={{
+                                        name: 'situation',
+                                        id: 'outlined-age-native-simple',
+                                    }}
+                                    className={classes.selectBorder}
+                                    required={true}
+                                >
+                                    <option aria-label="None" value="" />
+                                    <option value={"Primaire"}>Primaire</option>
+                                    <option value={"Collège"}>Collège</option>
+                                    <option value={"Lycée"}>Lycée</option>
+                                    <option value={"Post-bac"}>Post-bac</option>
+                                    <option value={"Parent"}>Parent</option>
+                                </Select>
+                            </FormControl>
                             <InputCustom
                                 name={"password"}
                                 value={this.state.password}
