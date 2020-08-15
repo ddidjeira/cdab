@@ -77,6 +77,59 @@ class Quiz2 extends Component {
             homStayMother: "",
             relationShipMother: "",
             userCity: localStorage.getItem("country")+" - "+localStorage.getItem("city"),
+            foodByDay: "",
+            foodTimeInDay: "",
+            aboutSexeWithParents: "",
+            aboutSexeWithParentsRaison: "",
+            boyOrGirlFriends: "",
+            boyOrGirlFriendsRaison: "",
+            parentsKnowRelationShip: "",
+            ageFirstRapport: "",
+            waitingSexe: "",
+            waitSexeRaison: "",
+            lifeSmbWithOrAlone: "",
+            joyOfLiving: "",
+            spritFighting: "",
+            isLikeIt: "",
+            notLikeIt: "",
+            schoolLevel: "",
+            repeatClass: "",
+            repeatWichClass: "",
+            actualSchool: "",
+            raisonActualSchool: "",
+            timeComeToSchool: "",
+            meanOfTransport: "",
+            comeSchoolAlone: "",
+            parentHelpToGoSchool: "",
+            schoolSystem: "",
+            schoolSystemDesc: "",
+            moyCE1 : "",
+            moyCE2 : "",
+            moyCM1 : "",
+            moyCM2 : "",
+            primarySchool : "",
+            schoolSystemCol : "",
+            schoolSystemDescCol : "",
+            moyCl6 : "",
+            moyCl5 : "",
+            moyCl4 : "",
+            moyCl3 : "",
+            collegeSchool : "",
+            schoolSystemLyc : "",
+            schoolSystemDescLyc : "",
+            moy2nd : "",
+            moy1ere : "",
+            moyTle : "",
+            lyceeSchool : "",
+            firstSocialMedia: "",
+            secSocialMedia: "",
+            thrSocialMedia: "",
+            timeSocialMedia: "",
+            weekTimeSocialMedia: "",
+            connectTelSocialMedia: "",
+            connectPcSocialMedia: "",
+            furSocialMedia: "",
+
 
             errBirthday: ""
         };
@@ -588,6 +641,561 @@ class Quiz2 extends Component {
                                 </div>
                             </div>
                         )}
+
+                        <h3>Cadre et Relation Familiale</h3>
+                        <div>
+                            <FormLabel component="legend">Je vis actuellement avec : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="lifeSmbWithOrAlone" value={this.state.lifeSmbWithOrAlone} onChange={this.handleChange}>
+                                <FormControlLabel value="Mes deux parents" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Mes deux parents" />
+                                <FormControlLabel value="Père uniquement" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Père ou Mère uniquement" />
+                                <FormControlLabel value="Oncle ou Tante paternel" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Oncle ou Tante paternel" />
+                                <FormControlLabel value="Oncle ou Tante maternel" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Oncle ou Tante maternel" />
+                                <FormControlLabel value="Tuteur ou Tutrice" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Tuteur ou Tutrice" />
+                                <FormControlLabel value="Grand Père" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Grand Père" />
+                                <FormControlLabel value="Grand Mère" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Grand Mère" />
+                                <FormControlLabel value="Seul(e) ou à l'internat" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Seul(e) ou à l'internat" />
+                            </RadioGroup>
+                        </div>
+
+                        <div>
+                            <br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Joie de vivre (0~9)</p>
+                            <TextField
+                                inputProps={{ min: "0", max: "9", step: "1" }}
+                                placeholder={"7"}
+                                value={this.state.joyOfLiving}
+                                name={"joyOfLiving"}
+                                onChange={this.handleChange}
+                                type={"number"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Combativité (0~9)</p>
+                            <TextField
+                                inputProps={{ min: "0", max: "9", step: "1" }}
+                                placeholder={"7"}
+                                value={this.state.spritFighting}
+                                name={"spritFighting"}
+                                onChange={this.handleChange}
+                                type={"number"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>De façon général : </p>
+                            <TextField
+                                label="Ce que j'aime"
+                                value={this.state.isLikeIt}
+                                name={"isLikeIt"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="Ce que je n'aime pas"
+                                value={this.state.notLikeIt}
+                                name={"notLikeIt"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+
+                        <h3>Parcours scolaire</h3>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Niveau d'études actuel : </p>
+                            <TextField
+                                label="Terminal C ou 4ème"
+                                value={this.state.schoolLevel}
+                                name={"schoolLevel"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <FormLabel component="legend">J'ai déjà redoublé une classe : </FormLabel>
+                        <RadioGroup style={{display: "block"}}
+                                    name="repeatClass" value={this.state.repeatClass} onChange={this.handleChange}>
+                            <FormControlLabel value="Oui" control={<Radio
+                                classes={{root: classes.radio, checked: classes.checked}}/>} label="Oui" />
+                            <FormControlLabel value="Non" control={<Radio
+                                classes={{root: classes.radio, checked: classes.checked}}/>} label="Non" />
+                        </RadioGroup>
+                        {this.state.repeatClass === "Oui" &&(
+                            <div>
+                                <TextField
+                                    label="Laquelle"
+                                    value={this.state.repeatWichClass}
+                                    name={"repeatWichClass"}
+                                    onChange={this.handleChange}
+                                    type={"text"}
+                                    required={false}
+                                    className={classes.textField}
+                                />
+                            </div>
+                        )}
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Nom et lieu de l’établissement fréquenté actuellement :</p>
+                            <TextField
+                                label="Ecole International St. Jean"
+                                value={this.state.actualSchool}
+                                name={"actualSchool"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="Raison du choix de l'école"
+                                value={this.state.raisonActualSchool}
+                                name={"raisonActualSchool"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="Temps de parcours pour venir à l’école : "
+                                value={this.state.timeComeToSchool}
+                                name={"timeComeToSchool"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <div>
+                            <FormLabel component="legend">Moyen de transport pour aller à l'école : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="repeatClass" value={this.state.meanOfTransport} onChange={this.handleChange}>
+                                <FormControlLabel value="A pied" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="A pied" />
+                                <FormControlLabel value="Vélo" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Vélo" />
+                                <FormControlLabel value="Moto" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Moto" />
+                                <FormControlLabel value="Voiture" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Voiture" />
+                                <FormControlLabel value="Taxi" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Taxi" />
+                                <FormControlLabel value="Bus" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Bus" />
+                                <FormControlLabel value="Tramway" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Tramway" />
+                                <FormControlLabel value="Métro" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Métro" />
+                            </RadioGroup>
+                        </div>
+                        <div>
+                            <FormLabel component="legend">Je viens à l'école seul : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="comeSchoolAlone" value={this.state.comeSchoolAlone} onChange={this.handleChange}>
+                                <FormControlLabel value="Oui" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Oui" />
+                                <FormControlLabel value="Non" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Non" />
+                            </RadioGroup>
+                            {this.state.comeSchoolAlone === "Oui" &&(
+                                <div>
+                                    <TextField
+                                        label="Accompagné par ?"
+                                        value={this.state.parentHelpToGoSchool}
+                                        name={"parentHelpToGoSchool"}
+                                        onChange={this.handleChange}
+                                        type={"text"}
+                                        required={false}
+                                        className={classes.textField}
+                                    />
+                                </div>
+                                )
+                            }
+                        </div>
+                        <div>
+                            <FormLabel component="legend">Système d’études au primaire : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="schoolSystem" value={this.state.schoolSystem} onChange={this.handleChange}>
+                                <FormControlLabel value="National" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="National" />
+                                <FormControlLabel value="International" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="International" />
+                            </RadioGroup>
+                            {this.state.schoolSystem === "International" &&(
+                                <div>
+                                    <TextField
+                                        label="Quel système?"
+                                        value={this.state.schoolSystemDesc}
+                                        name={"schoolSystemDesc"}
+                                        onChange={this.handleChange}
+                                        type={"text"}
+                                        required={false}
+                                        className={classes.textField}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Moyenne générale CE1-CE2 : </p>
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCE1}
+                                name={"moyCE1"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCE2}
+                                name={"moyCE2"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Moyenne générale CM1-CM2 : </p>
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCM1}
+                                name={"moyCM1"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCM2}
+                                name={"moyCM2"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Ecole primaire de l'obtention du certificat : </p>
+                            <TextField
+                                label="Ets primaire"
+                                value={this.state.primarySchool}
+                                name={"primarySchool"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+
+
+
+
+                        <div>
+                            <FormLabel component="legend">Système d’études au collège : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="schoolSystemCol" value={this.state.schoolSystemCol} onChange={this.handleChange}>
+                                <FormControlLabel value="National" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="National" />
+                                <FormControlLabel value="International" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="International" />
+                            </RadioGroup>
+                            {this.state.schoolSystemCol === "International" &&(
+                                <div>
+                                    <TextField
+                                        label="Quel système?"
+                                        value={this.state.schoolSystemDescCol}
+                                        name={"schoolSystemDescCol"}
+                                        onChange={this.handleChange}
+                                        type={"text"}
+                                        required={false}
+                                        className={classes.textField}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Moyenne générale 6ème-5ème : </p>
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCl6}
+                                name={"moyCl6"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCl5}
+                                name={"moyCl5"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Moyenne générale 4ème-3ème : </p>
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCl4}
+                                name={"moyCl4"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyCl3}
+                                name={"moyCl3"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Collège de l'obtention du brevet : </p>
+                            <TextField
+                                label="Ets collège"
+                                name={"collegeSchool"}
+                                value={this.state.collegeSchool}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+
+
+
+
+
+                        <div>
+                            <FormLabel component="legend">Système d’études au lycée : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="schoolSystemLyc" value={this.state.schoolSystemLyc} onChange={this.handleChange}>
+                                <FormControlLabel value="National" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="National" />
+                                <FormControlLabel value="International" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="International" />
+                            </RadioGroup>
+                            {this.state.schoolSystemLyc === "International" &&(
+                                <div>
+                                    <TextField
+                                        label="Quel système?"
+                                        value={this.state.schoolSystemDescLyc}
+                                        name={"schoolSystemDescLyc"}
+                                        onChange={this.handleChange}
+                                        type={"text"}
+                                        required={false}
+                                        className={classes.textField}
+                                    />
+                                </div>
+                            )}
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Moyenne générale 2nd-1ère-Tle : </p>
+                            <TextField
+                                label="16.78"
+                                value={this.state.moy2nd}
+                                name={"moy2nd"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="16.78"
+                                value={this.state.moy1ere}
+                                name={"moy1ere"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="16.78"
+                                value={this.state.moyTle}
+                                name={"moyTle"}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+                        <div><br/>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Lycée de l'obtention du brevet : </p>
+                            <TextField
+                                label="Ets lycée"
+                                name={"lyceeSchool"}
+                                value={this.state.lyceeSchool}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                        </div>
+
+
+                        <div>
+                            <FormLabel component="legend">1ere Réseau social le plus utilisée : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="firstSocialMedia" value={this.state.firstSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="Facebook" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Facebook" />
+                                <FormControlLabel value="Whatsapp" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Whatsapp" />
+                                <FormControlLabel value="Youtube" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Youtube" />
+                                <FormControlLabel value="Twitter" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Twitter" />
+                                <FormControlLabel value="Instagram" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Instagram" />
+                                <FormControlLabel value="Skype" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Skype" />
+                                <FormControlLabel value="Snap" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Snap" />
+                                <FormControlLabel value="tik-tok" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="tik-tok" />
+                            </RadioGroup>
+                        </div>
+
+                        <div>
+                            <FormLabel component="legend">2eme Réseau social le plus utilisée : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="secSocialMedia" value={this.state.secSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="Facebook" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Facebook" />
+                                <FormControlLabel value="Whatsapp" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Whatsapp" />
+                                <FormControlLabel value="Youtube" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Youtube" />
+                                <FormControlLabel value="Twitter" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Twitter" />
+                                <FormControlLabel value="Instagram" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Instagram" />
+                                <FormControlLabel value="Skype" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Skype" />
+                                <FormControlLabel value="Snap" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Snap" />
+                                <FormControlLabel value="tik-tok" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="tik-tok" />
+                            </RadioGroup>
+                        </div>
+
+
+
+                        <div>
+                            <FormLabel component="legend">3eme Réseau social le plus utilisée : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="thrSocialMedia" value={this.state.thrSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="Facebook" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Facebook" />
+                                <FormControlLabel value="Whatsapp" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Whatsapp" />
+                                <FormControlLabel value="Youtube" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Youtube" />
+                                <FormControlLabel value="Twitter" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Twitter" />
+                                <FormControlLabel value="Instagram" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Instagram" />
+                                <FormControlLabel value="Skype" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Skype" />
+                                <FormControlLabel value="Snap" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Snap" />
+                                <FormControlLabel value="tik-tok" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="tik-tok" />
+                            </RadioGroup>
+                        </div>
+
+
+                        <div>
+                            <FormLabel component="legend">2eme Réseau social le plus utilisée : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="furSocialMedia" value={this.state.furSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="Facebook" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Facebook" />
+                                <FormControlLabel value="Whatsapp" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Whatsapp" />
+                                <FormControlLabel value="Youtube" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Youtube" />
+                                <FormControlLabel value="Twitter" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Twitter" />
+                                <FormControlLabel value="Instagram" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Instagram" />
+                                <FormControlLabel value="Skype" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Skype" />
+                                <FormControlLabel value="Snap" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Snap" />
+                                <FormControlLabel value="tik-tok" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="tik-tok" />
+                            </RadioGroup>
+                        </div>
+
+                        <div>
+                            <FormLabel component="legend">Temps moyen passé sur les réseaux sociaux/jours : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="timeSocialMedia" value={this.state.timeSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="15 min" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="15 min" />
+                                <FormControlLabel value="30 min" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="30 min" />
+                                <FormControlLabel value="+1h" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="+1h" />
+                            </RadioGroup>
+                        </div>
+
+                        <div>
+                            <FormLabel component="legend">Temps moyen passé sur les réseaux sociaux/semaine : </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="weekTimeSocialMedia" value={this.state.weekTimeSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="< 2 fois" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="< 2 fois" />
+                                <FormControlLabel value="< 4fois" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="< 4fois " />
+                                <FormControlLabel value="> 4 fois" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="> 4 fois" />
+                            </RadioGroup>
+                        </div>
+
+                        <div>
+                            <p style={{color: "rgba(0, 0, 0, 0.54)"}}>Moyens de connexion aux réseaux sociaux : </p>
+                            <FormLabel component="legend">Mobile </FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="connectTelSocialMedia" value={this.state.connectTelSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="Oui" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Oui" />
+                                <FormControlLabel value="Non" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Non" />
+                            </RadioGroup>
+
+                            <FormLabel component="legend">Ordinateur</FormLabel>
+                            <RadioGroup style={{display: "block"}}
+                                        name="connectPcSocialMedia" value={this.state.connectPcSocialMedia} onChange={this.handleChange}>
+                                <FormControlLabel value="Oui" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Oui" />
+                                <FormControlLabel value="Non" control={<Radio
+                                    classes={{root: classes.radio, checked: classes.checked}}/>} label="Non" />
+                            </RadioGroup>
+                        </div>
+
                     </div>
                 </div>
             </div>
