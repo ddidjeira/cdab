@@ -4,6 +4,7 @@ import MenuBar from "../utils/MenuBar";
 import InputCustom from "../utils/InputCustom";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import CustomAlert from "../utils/CustomAlert";
 
 const styles = theme => ({
     container: {
@@ -26,6 +27,7 @@ class Login extends Component {
         this.state = {
             errEmail: "",
             errPassword: "",
+            errAlert: "",
 
             email: "",
             password: "",
@@ -61,11 +63,18 @@ class Login extends Component {
             .catch(err => {
                 if (err.response.status === 409){
                     alert("Verifiez votre adresse mail et votre mot de passe");
+                    this.setState({errAlert: "Verifiez votre adresse mail et votre mot de passe"});
+                    return(<CustomAlert
+                        message={this.state.errAlert}
+                        color={0}
+                    />)
                 }
                 else if (err.response.status === 412){
                     alert("Adresse invalide");
+                    this.setState({errAlert: "Adresse invalide"});
                 }else{
                     alert("Veuillez reprendre");
+                    this.setState({errAlert: "Veuillez reprendre"});
                     window.location.reload();
                 }
             })
@@ -101,6 +110,10 @@ class Login extends Component {
                             />
                             <Button type="submit" variant="contained">CONNEXION</Button>
                         </form>
+                        <CustomAlert
+                            message={this.state.errAlert}
+                            color={0}
+                        />
                     </div>
                 </div>
             </div>

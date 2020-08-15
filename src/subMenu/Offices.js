@@ -117,20 +117,37 @@ class Office extends Component {
                                 </Col>
                             </Row>
                             <br/><br/>
+                            <img title={"Togo"} className={classes.drapeau}  src={require("../assets/tg.png")} alt=""/>
+                            <h3 style={{display: "inline",marginLeft:"20px",marginRight:"20px"}}>Togo</h3>
+                            <img title={"Togo"} className={classes.drapeau}  src={require("../assets/tg.png")} alt=""/>
                             <Row className={classes.loc}>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci5.jpg")} alt=""/>
+                                    <img title={"Togo"} className={classes.locaux}  src={require("../assets/Tg1.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci6.jpg")} alt=""/>
+                                    <img title={"Togo"} className={classes.locaux}  src={require("../assets/Tg2.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci7.jpg")} alt=""/>
+                                    <img title={"Togo"} className={classes.locaux}  src={require("../assets/Tg3.jpg")} alt=""/>
                                 </Col>
                                 <Col xs={12} md={6} lg={3}>
-                                    <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci8.jpg")} alt=""/>
+                                    <img title={"Togo"} className={classes.locaux}  src={require("../assets/Tg4.jpg")} alt=""/>
                                 </Col>
                             </Row>
+                            {/*<Row className={classes.loc}>*/}
+                            {/*    <Col xs={12} md={6} lg={3}>*/}
+                            {/*        <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci5.jpg")} alt=""/>*/}
+                            {/*    </Col>*/}
+                            {/*    <Col xs={12} md={6} lg={3}>*/}
+                            {/*        <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci6.jpg")} alt=""/>*/}
+                            {/*    </Col>*/}
+                            {/*    <Col xs={12} md={6} lg={3}>*/}
+                            {/*        <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci7.jpg")} alt=""/>*/}
+                            {/*    </Col>*/}
+                            {/*    <Col xs={12} md={6} lg={3}>*/}
+                            {/*        <img title={"Côte d'ivoire"} className={classes.locaux}  src={require("../assets/Ci8.jpg")} alt=""/>*/}
+                            {/*    </Col>*/}
+                            {/*</Row>*/}
                         </div>
                     </div>
                 </div>

@@ -5,8 +5,8 @@ import QuizData from "./QuizData";
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
 
 const styles = theme => ({
     container: {
@@ -42,10 +42,17 @@ const styles = theme => ({
     },
     optionDiv: {
         cursor: "pointer"
-    }
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
 });
 
-class Quiz1 extends Component {
+class Quiz extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -62,6 +69,11 @@ class Quiz1 extends Component {
             typeC : 0,
             typeA : 0,
             typeM : 0,
+            dreamJob1 : '',
+            dreamJob2 : '',
+            dreamJob3 : '',
+            dreamJob4 : '',
+            dreamJob5 : '',
             personName: [],
         };
     }
@@ -78,7 +90,7 @@ class Quiz1 extends Component {
         })
     };
 
-    result = () => {
+    sendResult = () => {
 
         alert(
             "typeT : "+this.state.typeT+
@@ -90,12 +102,18 @@ class Quiz1 extends Component {
         );
     };
 
+    sameValues = (arr) => {
+        return arr.every((v,i,a)=>v===a[0]);
+    };
+
     finishHandler = () =>{
         const {userAnswer,answer,score,quizEnd,userType,
-            typeT,typeR,typeI,typeC,typeA,typeM,personName
+            typeT,typeR,typeI,typeC,typeA,typeM,personName,
+            dreamJob1,dreamJob2,dreamJob3,dreamJob4,dreamJob5
         } = this.state;
 
-        //alert("options : "+personName);
+        this.setState({ personName: [...this.state.personName, ...[dreamJob1,dreamJob2,dreamJob3,dreamJob4,dreamJob5] ] });
+        alert("options : "+personName);
         for(let i = 0; i<personName.length; i++){
             if(personName[i] === "TRI"){
                 this.setState({
@@ -239,7 +257,7 @@ class Quiz1 extends Component {
             });
         }
 
-        this.result();
+        this.sendResult();
     };
 
     nextQuestionHandler = () => {
@@ -300,27 +318,57 @@ class Quiz1 extends Component {
         }
     }
 
-    handlerChangeSelect = (e) =>{
-        // alert("target : "+JSON.stringify(e.target,null,4));
+    handlerChangeDream1 = (e) =>{
+        const {dreamJob1} = this.state;
+        this.setState({dreamJob1: e.target.value});
         this.setState({
-            personName: e.target.value,
+            disabled: false
+        });
+
+        // if(!personName.includes(dreamJob1)){
+        //     this.setState(prevState => ({
+        //         personName: [...prevState.personName, dreamJob1]
+        //     }));
+        // }else{
+        //     alert("vous avez déjà choisi ce metier");
+        // }
+
+        alert("dreamJob1 : "+e.target.value);
+    };
+
+    handlerChangeDream2 = (e) =>{
+        const {dreamJob2} = this.state;
+        this.setState({dreamJob2: e.target.value});
+        this.setState({
+            disabled: false
+        });
+    };
+
+    handlerChangeDream3 = (e) =>{
+        const {dreamJob3} = this.state;
+        this.setState({dreamJob3: e.target.value});
+        this.setState({
+            disabled: false
+        });
+    };
+
+    handlerChangeDream4 = (e) =>{
+        const {dreamJob4} = this.state;
+        this.setState({dreamJob4: e.target.value});
+        this.setState({
+            disabled: false
+        });
+    };
+
+    handlerChangeDream5 = (e) =>{
+        const {dreamJob5} = this.state;
+        this.setState({dreamJob5: e.target.value});
+        this.setState({
             disabled: false
         });
     };
 
     render() {
-        const names = [
-            'Oliver Hansen',
-            'Van Henry',
-            'April Tucker',
-            'Ralph Hubbard',
-            'Omar Alexander',
-            'Carlos Abbott',
-            'Miriam Wagner',
-            'Bradley Wilkerson',
-            'Virginia Andrews',
-            'Kelly Snyder',
-        ];
         const {classes} = this.props;
         const {question,options,currentIndex,userAnswer,quizEnd,type} = this.state;
 
@@ -336,17 +384,9 @@ class Quiz1 extends Component {
 
                     <div className={classes.containerQuizs}>
                         <h1 style={{color: "#b36233"}}>Questionnaire</h1>
-                        {/*{0 < currentIndex < 29 &&*/}
-                        {/*<h1 style={{color: "#b36233"}}>Phase 1 : Votre manière d’être</h1>}*/}
-                        {/*{ 29 <= currentIndex <= 87 &&*/}
-                        {/*<h1 style={{color: "#b36233"}}>Phase 2 :  Vos types d’environnements privilégiés</h1>}*/}
-                        {/*{ 88 <= currentIndex <= 136 &&*/}
-                        {/*<h1 style={{color: "#b36233"}}>Phase 3 :  Vos loisirs de prédilection</h1>}*/}
-                        {/*{currentIndex > 136 &&*/}
-                        {/*<h1 style={{color: "#b36233"}}>Phase 4 :  Vos métiers de rêves</h1>}*/}
                         <h3>{question}</h3>
                         <span>Question {currentIndex+1} / {QuizData.length}</span>
-                        {currentIndex < 137 &&
+                        {currentIndex < 2 &&
                             options.map((option,index) =>
                                 <div key={option.id} className={this.state.userAnswer === option? classes.questionSelected : classes.questions}
                                      onClick={()=> this.checkAnswer(option,type[index])}
@@ -356,22 +396,86 @@ class Quiz1 extends Component {
                             )
                         }
 
-                        {currentIndex >= 137 &&
+                        {currentIndex >= 2 &&
                             <div>
                                 <InputLabel id="demo-simple-select-label">Choisissez 5 métiers de vos rêves</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
-                                    multiple
-                                    value={this.state.personName}
-                                    onChange={this.handlerChangeSelect}
-                                >
-                                    {options.map((option,index) => (
-                                        <MenuItem key={option.id} value={type[index]} className={classes.questions}>
-                                            {option}
-                                        </MenuItem>
-                                    ))}
-                                </Select>
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="demo-simple-select-label">Métier 1</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={this.state.dreamJob1}
+                                        onChange={this.handlerChangeDream1}
+                                    >
+                                        {options.map((option,index) => (
+                                            <MenuItem key={option.id} value={type[index]} className={classes.questions}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="demo-simple-select-label">Métier 2</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={this.state.dreamJob2}
+                                        onChange={this.handlerChangeDream2}
+                                    >
+                                        {options.map((option,index) => (
+                                            <MenuItem key={option.id} value={type[index]} className={classes.questions}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="demo-simple-select-label">Métier 3</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={this.state.dreamJob3}
+                                        onChange={this.handlerChangeDream3}
+                                    >
+                                        {options.map((option,index) => (
+                                            <MenuItem key={option.id} value={type[index]} className={classes.questions}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="demo-simple-select-label">Métier 4</InputLabel>
+                                    <Select
+                                        value={this.state.dreamJob4}
+                                        onChange={this.handlerChangeDream4}
+                                    >
+                                        {options.map((option,index) => (
+                                            <MenuItem key={option.id} value={type[index]} className={classes.questions}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="demo-simple-select-label">Métier 5</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-label"
+                                        id="demo-simple-select"
+                                        value={this.state.dreamJob5}
+                                        onChange={this.handlerChangeDream5}
+                                    >
+                                        {options.map((option,index) => (
+                                            <MenuItem key={option.id} value={type[index]} className={classes.questions}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
                             </div>
                         }
 
@@ -401,4 +505,4 @@ class Quiz1 extends Component {
 }
 
 
-export default withStyles(styles)(Quiz1);
+export default withStyles(styles)(Quiz);
