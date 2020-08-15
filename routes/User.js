@@ -69,6 +69,7 @@ route.post('/login', async (req,res)=>{
                     country: findUser.country,
                     city: findUser.city,
                     situation: findUser.situation,
+                    validSold: findUser.validSold,
                 })
             } else {
                 return res.status(409).json({text: "Password error"})

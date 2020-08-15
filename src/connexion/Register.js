@@ -161,7 +161,7 @@ class Register extends Component {
                             <InputCustom
                                 name={"country"}
                                 value={this.state.country}
-                                placeholder="France"
+                                placeholder="Pays"
                                 errorText={this.state.errCountry}
                                 onChange={this.handleChange}
                                 type={"text"}
@@ -170,7 +170,7 @@ class Register extends Component {
                             <InputCustom
                                 name={"city"}
                                 value={this.state.city}
-                                placeholder="Paris"
+                                placeholder="Ville"
                                 errorText={this.state.errCity}
                                 onChange={this.handleChange}
                                 type={"text"}
@@ -192,9 +192,9 @@ class Register extends Component {
                                 >
                                     <option aria-label="None" value="" />
                                     <option value={"Primaire"}>Primaire</option>
-                                    <option value={"Collège"}>Collège</option>
-                                    <option value={"Lycée"}>Lycée</option>
-                                    <option value={"Post-bac"}>Post-bac</option>
+                                    <option value={"College"}>Collège</option>
+                                    <option value={"Lycee"}>Lycée</option>
+                                    <option value={"PostBac"}>Post-bac</option>
                                     <option value={"Parent"}>Parent</option>
                                 </Select>
                             </FormControl>

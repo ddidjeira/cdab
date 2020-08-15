@@ -29,7 +29,7 @@ import Quiz1 from "./Quizz/Quiz";
 import Testimonials from "./SubAchievements/Testimonials";
 import {PrivateRoute} from "./utils/PrivateRoute";
 import ActivityReport from "./SubAchievements/ActivityReport";
-import Quiz2 from "./Quizz/Quiz2";
+import QuizPrincipal from "./Quizz/Quiz2";
 
 const routing = (
     <Router>
@@ -68,8 +68,11 @@ const routing = (
                 <Route exact path="/actu/3" component={Actu3}/>
 
 
-                <PrivateRoute exact path="/Quiz1" component={Quiz1}/>
-                <PrivateRoute exact path="/Quiz2" component={Quiz2}/>
+                <PrivateRoute exact path="/quiz/studentPrincipal" component={QuizPrincipal}/>
+                <PrivateRoute exact path="/quiz/PostBac" component={Quiz1}/>
+                {/*<PrivateRoute exact path="/quiz/Primaire" component={QuizPrimaire}/>*/}
+                {/*<PrivateRoute exact path="/quiz/Parent1" component={QuizParent1}/>*/}
+                {/*<PrivateRoute exact path="/quiz/Parent2" component={QuizParent2}/>*/}
 
             </Switch>
         </div>

@@ -7,6 +7,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
     container: {
@@ -30,6 +31,13 @@ const styles = theme => ({
         marginTop: theme.spacing(1),
         marginBottom: theme.spacing(2),
         width: 300,
+    },
+    btnQuiz: {
+        backgroundColor: "#EDBA2D",
+        '&:hover': {
+            // textDecoration: 'underline',
+            backgroundColor: "#E58F1E",
+        },
     },
     radio: {
         '&$checked': {
@@ -158,6 +166,10 @@ class Quiz2 extends Component {
         console.log(e.target.name + " : "+e.target.value);
     };
 
+    submitAnswers = () => {
+        alert("send userResponse by mail")
+    };
+
     render() {
         const {classes} = this.props;
         const {gender,birthCertificate,idCard,passport,curSisters,curBrothers} = this.state;
@@ -218,12 +230,13 @@ class Quiz2 extends Component {
                                 className={classes.textField}
                             />
                             <TextField
-                                id="datetime-local"
+                                id="date"
                                 label="Date de naissance"
                                 type="date"
-                                value="2018-07-22"
-                                name={"birthday"}
+                                value={this.state.birthday}
                                 className={classes.textField}
+                                name={"birthday"}
+                                onChange={this.handleChange}
                                 InputLabelProps={{
                                     shrink: true,
                                 }}
@@ -1377,6 +1390,8 @@ class Quiz2 extends Component {
                                     classes={{root: classes.radio, checked: classes.checked}}/>} label="avec les camarades de l’école" />
                                 <FormControlLabel value="avec les membres de la famille" control={<Radio
                                     classes={{root: classes.radio, checked: classes.checked}}/>} label="avec les membres de la famille" />
+                            </RadioGroup>
+                            <div>
                                 <TextField
                                     label="Pour aller"
                                     name={"goTo"}
@@ -1386,9 +1401,18 @@ class Quiz2 extends Component {
                                     required={false}
                                     className={classes.textField}
                                 />
-                            </RadioGroup>
+                            </div>
                         </div>
                         </div>
+
+
+                    <div style={{textAlign: "center", margin: "30px"}}>
+                        <Button className={classes.btnQuiz}
+                                onClick={this.submitAnswers}
+                        >
+                            Envoyer
+                        </Button>
+                    </div>
                     </div>
 
             </div>

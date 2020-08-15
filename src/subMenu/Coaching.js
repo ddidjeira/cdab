@@ -200,6 +200,68 @@ class Coaching extends Component {
                             </div>
                         </div>
 
+
+                        <div className={classes.cardArticle}>
+                            <div className={classes.videoArt}>
+                                <iframe className={classes.videoClass} width="1280" height="720" src="https://www.youtube.com/embed/FxAZXKgaUAg"
+                                        frameBorder="0"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowFullScreen></iframe>
+                            </div>
+
+                            <div className={classes.textArt}>
+                                <div className={classes.textPlace}>
+                                    <strong>LA SANTE DANS LA VIE DE L’APPRENANT</strong><br/><br/>
+                                    Il est bon à l’étudiant ou l’élève de réussir dans ses études. Aussi la santé
+                                    mentale et la capacité y contribuent. Il faut avant tout avoir la santé. Tomber
+                                    malade toutes fois serait un handicap à la réussite de nos enfants. Cela ne leur
+                                    permettra pas de progresser dans la poursuite de leurs études. Quelles sont alors
+                                    les mesures à prendre ? Comment prévenir ses différentes crises de santé lors
+                                    des études ? Surtout dans les milieux où les médecins sont rares.
+                                    Le choix des études de santé n’est pas un parcours facile. Néanmoins, le profil
+                                    de l’apprenant est un facteur inhérent pour la réussite dans le domaine de la
+                                    médecine. <br/><br/>
+                                    Malgré l’exigence de la médecine, en raison de sa durée d’étude allant de sept
+                                    (7) à douze ans (12ans) au total, on s’en sort avec une bonne organisation et une
+                                    bonne abnégation. <br/><br/>
+                                    Il est vivement conseillé d’avoir dans chaque famille un médecin traitant. Il
+                                    coordonne l’ensemble des soins reçus par son patient. Le médecin traitant sera
+                                    également chargé d’orienter si nécessaire vers un médecin
+                                    spécialiste « correspondant » ou un service hospitalier. Il a pour rôle également
+                                    de centraliser les informations : résultats d’examens, traitements. Il dispose ainsi
+                                    d’une vision globale de l’état de santé de son patient. <br/><br/>
+                                    Ce choix permettra donc à la famille de connaître l’état de santé de chacun de
+                                    ses membres bien avant que le pire soit annoncé par manque de prévention.
+                                    La santé est aussi utile au niveau de la bouche. Un dentiste par exemple est un
+                                    garant de la santé de la bouche. Un étudiant atteint d’une infection dentaire ou
+                                    abcès dans la bouche ou ayant une fracture dentaire, ou encore une tumeur
+                                    buccale…ne pourra plus suivre normalement ses cours, à cause de la douleur. Et
+                                    c’est à ce moment il courra vers un dentiste. Sa santé devient en ce moment un
+                                    facteur gênant pour ses études. <br/><br/>
+                                    En ce qui concerne les règles ou menstruations douloureuses ou difficiles
+                                    appelées dysménorrhées, dont souffrent bon nombre de filles, la solution n’est
+                                    pas évidente, puisqu’elle est normale. Par contre, cette douleur peut être apaisée
+
+                                    www.cdabcompass.com
+                                    par l’utilisation des antidouleurs, Toutes fois il est conseillé de voir son médecin
+                                    traitant au moins une semaine avant l’arrivée de la menstruation.
+                                    La prévention est mieux que la guérison en second plan.
+                                    Les méthodes de préventions les plus recommandées sont entre autres :
+                                    l’hygiène, bien s’hydrater, faire du sport ; au moins trente minutes de marche
+                                    rapide chaque jour et éviter également les boissons sucrées. Le curcuma est
+                                    aussi recommandé pour ses vertus immenses. <br/><br/>
+                                    Des alternatives nous sont également offertes en vue de la prévention. C’est le
+                                    cas par exemple de l’utilisation régulière des cuirs dents, deux fois par jours en
+                                    raison de deux (2h) de temps à chaque brossage ; ou l’utilisation des brosses à
+                                    dents.
+                                    Il est possible d’envoyer l’apprenant à l’étranger en ses périodes de crise du
+                                    COVID19. Si toutes les mesures de sécurités sont respectées, les parents n’ont
+                                    aucune raison de douter. Permettez donc à votre enfant de poursuivre ses études
+                                    et ne pas perdre une année.
+                                </div>
+                            </div>
+                        </div>
+
                         <div className={classes.cardArticle}>
                             <div className={classes.videoArt}>
                                 <iframe className={classes.videoClass} src="https://www.youtube.com/embed/XqQcTnM_Sfo"
@@ -235,9 +297,6 @@ class Coaching extends Component {
                                 </div>
                             </div>
                         </div>
-
-
-
 
                         <div className={classes.cardArticle}>
                             <div className={classes.videoArt}>
@@ -292,28 +351,6 @@ class Coaching extends Component {
                                 </div>
                             </div>
                         </div>
-
-
-
-
-                        <div className={classes.cardArticle}>
-                            <div className={classes.videoArt}>
-                                <iframe className={classes.videoClass} width="1280" height="720" src="https://www.youtube.com/embed/FxAZXKgaUAg"
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen></iframe>
-                            </div>
-                            <div className={classes.textArt}>
-                                <div className={classes.textPlace}>
-                                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la
-                                    mise en page avant impression. Le Lorem Ipsum est le faux texte standard de
-                                    l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble
-                                    des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas
-                                    fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique,
-                                </div>
-                            </div>
-                        </div>
-
 
                     </div>
 

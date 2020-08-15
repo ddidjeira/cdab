@@ -52,7 +52,16 @@ class StudentProfil extends Component {
 
     firstTest = () =>{
         if(localStorage.getItem("token") !== null){
-            window.location.href = '/Quiz1';
+            window.location.href = '/studentPrincipal';
+        }else{
+            alert("Veuillez tout d'abord créer un compte ou vous connecter!");
+            window.location.href = '/login';
+        }
+    };
+
+    specificPath = (path) =>{
+        if(localStorage.getItem("token") !== null){
+            window.location.href = "/quiz"+path;
         }else{
             alert("Veuillez tout d'abord créer un compte ou vous connecter!");
             window.location.href = '/login';
@@ -96,11 +105,60 @@ class StudentProfil extends Component {
                                 </p>
                             </div>
                         </div>
-                        <Button className={classes.btnQuiz}
-                                onClick={this.firstTest}
-                        >
-                            Passer le test
-                        </Button>
+                        {localStorage.getItem("situation") !== "Parent" &&(
+                            <div>
+                                {localStorage.getItem("validSold") === "false" &&(
+                                    <div>
+                                        <Button className={classes.btnQuiz}
+                                                onClick={() => this.specificPath("/studentPrincipal")}
+                                        >
+                                            Passer le test général
+                                        </Button>
+                                    </div>
+                                )}
+                                {localStorage.getItem("validSold") === "true" && (
+                                    <div>
+                                        {localStorage.getItem("situation") !== "Primaire" && (
+                                            <Button className={classes.btnQuiz}
+                                                    onClick={() => this.specificPath("/PostBac")}
+                                            >
+                                                Passer le test spécifique
+                                            </Button>
+                                        )}
+                                        {localStorage.getItem("situation") === "Primaire" && (
+                                            <Button className={classes.btnQuiz}
+                                                    onClick={() => this.specificPath("/Primaire")}
+                                            >
+                                                Passer le test spécifique
+                                            </Button>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                        {localStorage.getItem("situation") === "Parent" &&(
+                            <div>
+                                {localStorage.getItem("validSold") === "false" &&(
+                                    <div>
+                                        <Button className={classes.btnQuiz}
+                                                onClick={() => this.specificPath("/Parent1")}
+                                        >
+                                            Passer le test général
+                                        </Button>
+                                    </div>
+                                )}
+
+                                {localStorage.getItem("validSold") === "true" && (
+                                    <div>
+                                        <Button className={classes.btnQuiz}
+                                                onClick={() => this.specificPath("/Parent2")}
+                                        >
+                                            Passer le test spécifique
+                                        </Button>
+                                    </div>
+                                )}
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

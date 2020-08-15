@@ -57,6 +57,7 @@ class Login extends Component {
                     localStorage.setItem("country",res.data.country);
                     localStorage.setItem("city",res.data.city);
                     localStorage.setItem("situation",res.data.situation);
+                    localStorage.setItem("validSold",res.data.validSold);
                     window.location.href = "/";
                 }
             })
