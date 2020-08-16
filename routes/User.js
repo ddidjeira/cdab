@@ -3,6 +3,7 @@ const express = require('express');
 const route = express.Router();
 const passwordHash = require("password-hash");
 const validator = require("email-validator");
+const EmailSender = require("../services/EmailSender");
 
 route.post('/register', async (req,res) => {
     let user = new userModel();
@@ -80,6 +81,23 @@ route.post('/login', async (req,res)=>{
     }else {
         return res.status(412).json({text : 'Email invalid'});
     }
+});
+
+route.post('/quiz', async(req,res)=>{
+    console.log("-> Sending first quiz...");
+    let userEmail = "fabricesumsa2000@gmail.com";
+    let suject = req.body.suject;
+    let container = req.body.container;
+
+    console.log(userEmail + ":"+suject+":"+container);
+    EmailSender.sendEmail(userEmail,suject,container)
+        .then(_res => {
+            return res.status(200).json({text : 'Email invalid'});
+        })
+        .catch(ex => {
+            console.log("Err mailing : "+ex);
+            return res.status(409).json({text : 'Erreur envois de mail'});
+        })
 });
 
 

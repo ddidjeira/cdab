@@ -2,12 +2,12 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core";
 import MenuBar from "../utils/MenuBar";
 import TextField from "@material-ui/core/TextField";
-import InputCustom from "../utils/InputCustom";
 import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Radio from "@material-ui/core/Radio";
 import Button from "@material-ui/core/Button";
+import axios from 'axios';
 
 const styles = theme => ({
     container: {
@@ -146,6 +146,7 @@ class Quiz2 extends Component {
             studyChoiceRaison: "",
             morningWakeUpTime: "",
             doingBeforeGoToSchool: "",
+            nightSleepTime: "",
             doingAfterGoToSchool: "",
             readBooks: "",
             seeTv: "",
@@ -155,7 +156,7 @@ class Quiz2 extends Component {
             goTo: "",
 
 
-            errBirthday: ""
+            errBirthday: "",
         };
     }
 
@@ -166,8 +167,132 @@ class Quiz2 extends Component {
         console.log(e.target.name + " : "+e.target.value);
     };
 
-    submitAnswers = () => {
-        alert("send userResponse by mail")
+    submitAnswers = (e) => {
+        e.preventDefault();
+        alert("send userResponse by mail");
+        let result ="<p>Date du jour : </p><h3>"+this.state.curTime+"</h3>"+
+            "<p>Nom : </p><h3>"+this.state.lastName+"</h3>"+
+            "<p>Prénom : </p><h3>"+this.state.firstName+"</h3>"+
+            "<p>Date et lieu de Naissance : </p><h3>"+this.state.birthday+" - "+this.state.birthdayCity+"</h3>"+
+            "<p>Sexe : </p><h3>"+this.state.gender+"</h3>"+
+            "<p>Numéro : </p><h3>"+this.state.userNumber+"</h3>"+
+            "<p>Carte d'identité : </p><h3>"+this.state.idCard+"</h3>"+
+            "<p>Acte de naissance  : </p><h3>"+this.state.birthCertificate+"</h3>"+
+            "<p>Passeport : </p><h3>"+this.state.passport+"</h3>"+
+            "<p>Nombre de frères  : </p><h3>"+this.state.curBrothers+"</h3>"+
+            "<p>Frère 1  : </p><h3>"+this.state.curBrother1+"</h3>"+
+            "<p>Frère 2  : </p><h3>"+this.state.curBrother2+"</h3>"+
+            "<p>Frère 3  : </p><h3>"+this.state.curBrother3+"</h3>"+
+            "<p>Nombre de soeurs  : </p><h3>"+this.state.curSisters+"</h3>"+
+            "<p>Soeur 1  : </p><h3>"+this.state.curSister1+"</h3>"+
+            "<p>Soeur 2  : </p><h3>"+this.state.curSister2+"</h3>"+
+            "<p>Soeur 3  : </p><h3>"+this.state.curSister3+"</h3>"+
+            "<p>Nature des frères et soeurs  : </p><h3>"+this.state.natureBrothers+"</h3>"+
+            "<p>Qualité des relations avec les frères et sœurs (0~9) : </p><h3>"+this.state.relationShipMif+"</h3>"+
+            "<p>Nature de la famille  : </p><h3>"+this.state.natureFamily+"</h3>"+
+            "<p>Père ou tuteur :</p>"+
+            "<p>Situation du père biologique : </p><h3>"+this.state.fatherAlive+"</h3>"+
+            "<p>Statut : </p><h3>"+this.state.fatherStatut+"</h3>"+
+            "<p>Profession du père ou du tuteur : </p><h3>"+this.state.fatherWork+"</h3>"+
+            "<p>Numéro : </p><h3>"+this.state.fatherNumber+"</h3>"+
+            "<p>Il revient à la maison : </p><h3>"+this.state.homStayFather+"</h3>"+
+            "<p>Qualité des relations avec le père (0~9) : </p><h3>"+this.state.relationShipFather+"</h3>"+
+            "<p>Mère ou tutrice :</p>"+
+            "<p>Situation du mère biologique : </p><h3>"+this.state.motherAlive+"</h3>"+
+            "<p>Statut : </p><h3>"+this.state.motherStatut+"</h3>"+
+            "<p>Profession du mère ou tutrice : </p><h3>"+this.state.motherWork+"</h3>"+
+            "<p>Numéro : </p><h3>"+this.state.motherNumber+"</h3>"+
+            "<p>Il revient à la maison : </p><h3>"+this.state.homStayMother+"</h3>"+
+            "<p>Qualité des relations avec le mère (0~9) : </p><h3>"+this.state.relationShipMother+"</h3>"+
+            "<p>Lieu d’habitation actuel : </p><h3>"+this.state.userCity+"</h3>"+
+            "<p>Nombre de fois de repas dans la journée : </p><h3>"+this.state.foodByDay+"</h3>"+
+            "<p>Horaires de repas dans la journée : </p><h3>"+this.state.foodTimeInDay+"</h3>"+
+            "<p>Parles tu d’éducation sexuelle avec les parents : </p><h3>"+this.state.aboutSexeWithParents+"</h3>"+
+            "<p>Horaires de repas dans la journée : </p><h3>"+this.state.aboutSexeWithParents+"</h3>"+
+            "<p>Raison : </p><h3>"+this.state.aboutSexeWithParentsRaison+"</h3>"+
+            "<p>As-tu un(e) petit(e) ami(e) : </p><h3>"+this.state.boyOrGirlFriends+"</h3>"+
+            "<p>Raison : </p><h3>"+this.state.boyOrGirlFriendsRaison+"</h3>"+
+            "<p>les parents sont au courant de cette relation amoureuse : </p><h3>"+this.state.parentsKnowRelationShip+"</h3>"+
+            "<p>J’ai eu ma première relation sexuelle à l’âge de: </p><h3>"+this.state.ageFirstRapport+"</h3>"+
+            "<p>Je peux m’abstenir de relation sexuelle : </p><h3>"+this.state.waitingSexe+"</h3>"+
+            "<p>Raison : </p><h3>"+this.state.waitSexeRaison+"</h3>"+
+            "<p>Je vis actuellement avec : </p><h3>"+this.state.lifeSmbWithOrAlone+"</h3>"+
+            "<p>Joie de vivre : </p><h3>"+this.state.joyOfLiving+"</h3>"+
+            "<p>Combativité : </p><h3>"+this.state.spritFighting+"</h3>"+
+            "<p>Ce que J’aime en général : </p><h3>"+this.state.isLikeIt+"</h3>"+
+            "<p>Ce que Je n’aime pas en général :</p><h3>"+this.state.notLikeIt+"</h3>"+
+            "<p>Niveau d’études actuel : </p><h3>"+this.state.schoolLevel+"</h3>"+
+            "<p>J’ai déjà redoublé une classe : </p><h3>"+this.state.repeatClass+"</h3>"+
+            "<p>Laquelle : </p><h3>"+this.state.repeatWichClass+"</h3>"+
+            "<p>Nom et lieu de l’établissement fréquenté actuellement : </p><h3>"+this.state.actualSchool+"</h3>"+
+            "<p>Raison : </p><h3>"+this.state.raisonActualSchool+"</h3>"+
+            "<p>Temps de parcours pour venir à l’école : </p><h3>"+this.state.timeComeToSchool+"</h3>"+
+            "<p>Moyen de transport pour venir à l’école : </p><h3>"+this.state.meanOfTransport+"</h3>"+
+            "<p>Je viens à l’école : </p><h3>"+this.state.comeSchoolAlone+"</h3>"+
+            "<p>Accompagné(e) par :  </p><h3>"+this.state.parentHelpToGoSchool+"</h3>"+
+            "<p>Système d’études au primaire :</p><h3>"+this.state.schoolSystem+"</h3>"+
+            "<p>Lequel :</p><h3>"+this.state.schoolSystemDesc+"</h3>"+
+            "<p>Moyenne générale en CE1 : </p><h3>"+this.state.moyCE1+"</h3>"+
+            "<p>Moyenne générale en CE2 : </p><h3>"+this.state.moyCE2+"</h3>"+
+            "<p>Moyenne générale en CM1 : </p><h3>"+this.state.moyCM1+"</h3>"+
+            "<p>Moyenne générale en CM2 : </p><h3>"+this.state.moyCM2+"</h3>"+
+            "<p>Ecole primaire du passage au collège ou du certificat d’études primaire : </p><h3>"+this.state.primarySchool+"</h3>"+
+            "<p>Système d’études au collège : </p><h3>"+this.state.schoolSystemCol+"</h3>"+
+            "<p>Lequel :</p><h3>"+this.state.schoolSystemDescCol+"</h3>"+
+            "<p>Moyenne générale en 6eme : </p><h3>"+this.state.moyCl6+"</h3>"+
+            "<p>Moyenne générale en 5eme : </p><h3>"+this.state.moyCl5+"</h3>"+
+            "<p>Moyenne générale en 4eme : </p><h3>"+this.state.moyCl4+"</h3>"+
+            "<p>Moyenne générale en 3eme : </p><h3>"+this.state.moyCl3+"</h3>"+
+            "<p>Collège d’obtention du diplôme national du brevet ou brevet d’études du premier cycle : </p><h3>"+this.state.collegeSchool+"</h3>"+
+            "<p>Système d’études au lycée  : </p><h3>"+this.state.schoolSystemLyc+"</h3>"+
+            "<p>Lequel :</p><h3>"+this.state.schoolSystemDescLyc+"</h3>"+
+            "<p>Moyenne générale en 2nd : </p><h3>"+this.state.moy2nd+"</h3>"+
+            "<p>Moyenne générale en 1ere : </p><h3>"+this.state.moy1ere+"</h3>"+
+            "<p>Moyenne générale en Tle : </p><h3>"+this.state.moyTle+"</h3>"+
+            "<p>Lycée de fin d'etude : </p><h3>"+this.state.lyceeSchool+"</h3>"+
+            "<p>1ere Réseau social le plus utilisée : </p><h3>"+this.state.firstSocialMedia+"</h3>"+
+            "<p>2eme Réseau social le plus utilisée : </p><h3>"+this.state.secSocialMedia+"</h3>"+
+            "<p>3eme Réseau social le plus utilisée : </p><h3>"+this.state.thrSocialMedia+"</h3>"+
+            "<p>4eme Réseau social le plus utilisée : </p><h3>"+this.state.furSocialMedia+"</h3>"+
+            "<p>Temps passé sur les réseaux sociaux /jour :</p><h3>"+this.state.timeSocialMedia+"</h3>"+
+            "<p>Temps passé sur les réseaux sociaux /semaine :</p><h3>"+this.state.weekTimeSocialMedia+"</h3>"+
+            <p>Moyen de conexion :</p>+
+            "<p>Mobile :</p><h3>"+this.state.connectTelSocialMedia+"</h3>"+
+            "<p>Pc :</p><h3>"+this.state.connectPcSocialMedia+"</h3>"+
+            "<p>Perspectives professionnelles</p>"+
+            "<p>Métier envisagé :</p><h3>"+this.state.planedJob+"</h3>"+
+            "<p>Raison :</p><h3>"+this.state.planedJobRaison+"</h3>"+
+            "<p>Le choix est motivé par : </p>"+
+            "<p>Les conseils scolaires : </p><h3>"+this.state.planedJobBySchool+"</h3>"+
+            "<p>Les conseils de la famille : </p><h3>"+this.state.planedJobByFamily+"</h3>"+
+            "<p>Les conseils des amis : </p><h3>"+this.state.planedJobByFriends+"</h3>"+
+            "<p>Je veux continuer mes études post-bac : </p><h3>"+this.state.studyChoice+"</h3>"+
+            "<p>Raison : </p><h3>"+this.state.studyChoiceRaison+"</h3>"+
+            "<p>Heure moyenne à laquelle je me réveille le matin chaque jour : </p><h3>"+this.state.morningWakeUpTime+"</h3>"+
+            "<p>Ce que je fais le matin en général avant de venir à l’école : </p><h3>"+this.state.doingBeforeGoToSchool+"</h3>"+
+            "<p>Heure moyenne à laquelle je me couche le soir chaque jour : </p><h3>"+this.state.nightSleepTime+"</h3>"+
+            "<p>Ce que je fais le soir en général après avoir quitté à l’école : </p><h3>"+this.state.doingAfterGoToSchool+"</h3>"+
+            "<p>J’aime les loisirs suivants:</p>"+
+            "<p>Lire ou aller la bibliothèque : </p><h3>"+this.state.readBooks+"</h3>"+
+            "<p>Regarder la télévision : </p><h3>"+this.state.seeTv+"</h3>"+
+            "<p>Faire du sport : </p><h3>"+this.state.doSport+"</h3>"+
+            "<p>Discuter : </p><h3>"+this.state.talkWith+"</h3>"+
+            "<p>Sortir : </p><h3>"+this.state.outWith+"</h3>"+
+            "<p>Pour aller : </p><h3>"+this.state.goTo+"</h3>"
+        ;
+        axios.post('/users/quiz', {
+            userEmail: localStorage.getItem("email"),
+            suject: "Quiz phase 1 - élève",
+            container: result
+        })
+            .then(res=>{
+                console.log(res.data.text);
+                if(res.status === 200){alert("Vos informations ont bien été transmises");}
+            })
+            .catch(err=>{
+                if(err.response.status === 409){
+                }
+            })
     };
 
     render() {
@@ -1164,7 +1289,7 @@ class Quiz2 extends Component {
 
 
                         <div>
-                            <FormLabel component="legend">2eme Réseau social le plus utilisée : </FormLabel>
+                            <FormLabel component="legend">4eme Réseau social le plus utilisée : </FormLabel>
                             <RadioGroup style={{display: "block"}}
                                         name="furSocialMedia" value={this.state.furSocialMedia} onChange={this.handleChange}>
                                 <FormControlLabel value="Facebook" control={<Radio
@@ -1327,6 +1452,15 @@ class Quiz2 extends Component {
                                 label="Ce que je fais le matin avant les cours"
                                 name={"doingBeforeGoToSchool"}
                                 value={this.state.doingBeforeGoToSchool}
+                                onChange={this.handleChange}
+                                type={"text"}
+                                required={false}
+                                className={classes.textField}
+                            />
+                            <TextField
+                                label="Heure de pour aller au lit"
+                                name={"nightSleepTime"}
+                                value={this.state.nightSleepTime}
                                 onChange={this.handleChange}
                                 type={"text"}
                                 required={false}

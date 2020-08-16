@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core";
 import MenuBar from "../utils/MenuBar";
 import InputCustom from "../utils/InputCustom";
 import Button from "@material-ui/core/Button";
-import axios from 'axios'
+import axios from 'axios';
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
