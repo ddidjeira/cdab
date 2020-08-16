@@ -51,6 +51,10 @@ const userSchema = mongoose.Schema(
             type: String,
             required: true,
             default: "false"
+        },
+        verificationCode: {
+            type: String,
+            required: false,
         }
     },
 );
