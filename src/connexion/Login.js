@@ -58,6 +58,8 @@ class Login extends Component {
                     localStorage.setItem("city",res.data.city);
                     localStorage.setItem("situation",res.data.situation);
                     localStorage.setItem("validSold",res.data.validSold);
+                    localStorage.setItem("quizFirstStep",res.data.quizFirstStep);
+                    localStorage.setItem("quizSecondStep",res.data.quizSecondStep);
                     window.location.href = "/";
                 }
             })

@@ -27,6 +27,14 @@ const styles = theme => ({
             backgroundColor: "#E58F1E",
         },
     },
+    btnQuizPayment: {
+        backgroundColor: "#bd2d13",
+        '&:hover': {
+            // textDecoration: 'underline',
+            backgroundColor: "#E58F1E",
+        },
+        color: "white",
+    },
     profilImage:{
         width: "100%",
         height: "500px",
@@ -40,12 +48,21 @@ class StudentProfil extends Component {
         super(props);
         this.state = {
             auth: false,
+            afterPayment: false,
+            specificTest: false,
         };
     }
 
     componentDidMount() {
         if(localStorage.getItem("token") !== null){
             this.setState({auth: true})
+        }
+        if(localStorage.getItem("validSold") === "true"
+            && localStorage.getItem("quizFirstStep") === "true"){
+            this.setState({afterPayment: true})
+        }
+        if(localStorage.getItem("quizSecondStep") === "false"){
+            this.setState({specificTest: true})
         }
         //alert("auth : "+this.state.auth + " token : "+localStorage.getItem("token"))
     }
@@ -66,6 +83,10 @@ class StudentProfil extends Component {
             alert("Veuillez tout d'abord créer un compte ou vous connecter!");
             window.location.href = '/login';
         }
+    };
+
+    doPayment = () =>{
+      alert("loading...");
     };
 
     render() {
@@ -105,12 +126,19 @@ class StudentProfil extends Component {
                                 </p>
                             </div>
                         </div>
+                        <Button className={classes.btnQuiz}
+                                onClick={() => this.specificPath("/studentPrincipal")}
+                                disabled={this.state.afterPayment}
+                        >
+                            Passer le test général
+                        </Button><br/><br/>
                         {localStorage.getItem("situation") !== "Parent" &&(
                             <div>
                                 {localStorage.getItem("validSold") === "false" &&(
                                     <div>
                                         <Button className={classes.btnQuiz}
                                                 onClick={() => this.specificPath("/studentPrincipal")}
+                                                disabled={this.state.afterPayment}
                                         >
                                             Passer le test général
                                         </Button>
@@ -121,6 +149,7 @@ class StudentProfil extends Component {
                                         {localStorage.getItem("situation") !== "Primaire" && (
                                             <Button className={classes.btnQuiz}
                                                     onClick={() => this.specificPath("/PostBac")}
+                                                    disabled={this.state.specificTest}
                                             >
                                                 Passer le test spécifique
                                             </Button>
@@ -128,6 +157,7 @@ class StudentProfil extends Component {
                                         {localStorage.getItem("situation") === "Primaire" && (
                                             <Button className={classes.btnQuiz}
                                                     onClick={() => this.specificPath("/Primaire")}
+                                                    disabled={this.state.specificTest}
                                             >
                                                 Passer le test spécifique
                                             </Button>
@@ -142,16 +172,17 @@ class StudentProfil extends Component {
                                     <div>
                                         <Button className={classes.btnQuiz}
                                                 onClick={() => this.specificPath("/Parent1")}
+                                                disabled={this.state.afterPayment}
                                         >
                                             Passer le test général
                                         </Button>
                                     </div>
                                 )}
-
                                 {localStorage.getItem("validSold") === "true" && (
                                     <div>
                                         <Button className={classes.btnQuiz}
                                                 onClick={() => this.specificPath("/Parent2")}
+                                                disabled={this.state.specificTest}
                                         >
                                             Passer le test spécifique
                                         </Button>
@@ -159,6 +190,14 @@ class StudentProfil extends Component {
                                 )}
                             </div>
                         )}
+                        <br/>
+                        <div>
+                            <Button className={classes.btnQuizPayment}
+                                    onClick={this.doPayment}
+                            >
+                                Procéder au paiement
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </div>
