@@ -47,7 +47,7 @@ const styles = theme => ({
     checked: {}
 });
 
-class Quiz2 extends Component {
+class QuizPrincipal extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -169,10 +169,10 @@ class Quiz2 extends Component {
 
     submitAnswers = (e) => {
         e.preventDefault();
-        alert("send userResponse by mail");
         let result ="<p>Date du jour : </p><h3>"+this.state.curTime+"</h3>"+
             "<p>Nom : </p><h3>"+this.state.lastName+"</h3>"+
             "<p>Prénom : </p><h3>"+this.state.firstName+"</h3>"+
+            "<p>Email : </p><h3>"+localStorage.getItem("email")+"</h3>"+
             "<p>Date et lieu de Naissance : </p><h3>"+this.state.birthday+" - "+this.state.birthdayCity+"</h3>"+
             "<p>Sexe : </p><h3>"+this.state.gender+"</h3>"+
             "<p>Numéro : </p><h3>"+this.state.userNumber+"</h3>"+
@@ -281,8 +281,8 @@ class Quiz2 extends Component {
             "<p>Pour aller : </p><h3>"+this.state.goTo+"</h3>"
         ;
         axios.post('/users/quiz', {
-            userEmail: localStorage.getItem("email"),
-            suject: "Quiz phase 1 - élève",
+            userEmail: "fabricesumsa2000@gmail.com",
+            subject: "Quiz phase 1 - élève",
             container: result
         })
             .then(res=>{
@@ -1558,4 +1558,4 @@ class Quiz2 extends Component {
 }
 
 
-export default withStyles(styles)(Quiz2);
+export default withStyles(styles)(QuizPrincipal);

@@ -7,6 +7,7 @@ import RadioGroup from "@material-ui/core/RadioGroup/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel/FormControlLabel";
 import Radio from "@material-ui/core/Radio/Radio";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 
 const styles = theme => ({
     container: {
@@ -102,8 +103,99 @@ class QuizParent1 extends Component {
         console.log(e.target.name + " : "+e.target.value);
     };
 
-    submitAnswers = () => {
-        alert("send userResponse by mail")
+    submitAnswers = (e) => {
+        e.preventDefault();
+        let result = "<p>Nom : </p><h3>"+this.state.lastName+"</h3>"+
+            "<p>Prénoms : </p><h3>"+this.state.firstName+"</h3>"+
+            "<p>Votre age : </p><h3>"+this.state.firstName+"</h3>"+
+            "<p>Votre profession : </p><h3>"+this.state.profession+"</h3>"+
+            "<p>Combien d’enfants avez-vous ? : </p><h3>"+this.state.totalchildren+"</h3>"+
+            "<p style={{color: 'rgba(0, 0, 0, 0.54)'}}>Classez les projets par priorité de 1 à 6</p>"+
+            "<ol><li>Education de mes enfants</li>" +
+            "<li>Me réaliser personnellement et professionnellement</li>" +
+            "<li>Projet immobilier : construire ou acheter une maison</li>" +
+            "<li>Acheter une voiture</li>" +
+            "<li>Relations familiales</li>" +
+            "<li>Autres</li>" +
+            "</ol>"+
+            "<p>L'éducation des enfants</p>"+
+            "<p>Enfant1 : </p><h3>"+this.state.childPrediction1+"</h3>"+
+            "<p>Enfant2 : </p><h3>"+this.state.childPrediction2+"</h3>"+
+            "<p>Enfant3 : </p><h3>"+this.state.childPrediction3+"</h3>"+
+            "<p>Enfant4 : </p><h3>"+this.state.childPrediction4+"</h3>"+
+            "<p>Pourquoi avez – vous décidé de faire une démarche d’orientation professionnelle pour\n" +
+            "votre enfant ? </p><h3>"+this.state.testRaison+"</h3>"+
+            "<p>Etes-vous inquiet pour l’avenir professionnel de votre enfant à cause\n" +
+            "d’évènements inattendus dans la vie ? </p><h3>"+this.state.afraidBcfLifeUnkwon+"</h3>"+
+            "<p>Avez-vous senti que des difficultés s&#39;accumulaient à un tel point pour l’enfant que " +
+            "vous ne pourriez plus les surmonter ?</p><h3>"+this.state.afraidBcfOfchildDiff+"</h3>"+
+            "<p>Avez-vous le sentiment de ne plus être plus être capable de contrôler les choses " +
+            "importantes dans la vie de l’enfant ?</p><h3>"+this.state.afraidToContchildLife+"</h3>"+
+            "<p>Vous êtes-vous senti(e) nerveux (se) et stressé(e) par rapport à la vie de votre " +
+            "enfant ?</p><h3>"+this.state.nervousBcfOfchildLife+"</h3>"+
+            "<p>Vous sentez-vous confiant en votre capacité à accompagner votre enfant jusqu’à " +
+            "l’aboutissement de ses études ?</p><h3>"+this.state.canYouFinishchildSch+"</h3>"+
+            "<p>Avez-vous le sentiment que la scolarité de votre enfant se déroule selon vos" +
+            "attentes ?</p><h3>"+this.state.didUthkSchIsGood+"</h3>"+
+            "<p>Avez-vous le sentiment que vous n’arrivez pas à faire tout ce que vous devez faire" +
+            "pour assurer la réussite de votre enfant ?</p><h3>"+this.state.afraidMkChildSchGood+"</h3>"+
+            "<p>Avez – vous été capable de contrôler les difficultés relationnelles avec votre" +
+            "enfant, d’avoir su régler calmement les problèmes avec lui ?</p><h3>"+this.state.canUsettleConflicts+"</h3>"+
+            "<p>Avez-vous globalement le sentiment de maitriser les évènements en relation avec" +
+            "votre enfant?</p><h3>"+this.state.canUmasterEventChild+"</h3>"+
+            "<p>Vous êtes vous sentie en colère face aux difficultés de votre enfant ?</p><h3>"+this.state.didUangryWtChild+"</h3>"+
+            "<p>Dans la relation avec votre enfant, avez-vous actuellement le sentiment que des\n" +
+            "difficultés dépassent votre capacité à les surmonter ?</p><h3>"+this.state.feelThatIsTooMuch+"</h3>"+
+            "<p>Je me sens tendu(e) ou énervé quand je pense à l&#39;enfant</p><h3>"+this.state.feelTenseWhThToChild+"</h3>"+
+            "<p>Je prends plaisir aux mêmes choses avec l&#39;enfant qu&#39;autrefois</p><h3>"+this.state.haveFunWthChildLikeBef+"</h3>"+
+            "<p>J’ai une sensation de peur comme si quelque chose d’horrible allait\n" +
+            "bloquer la réussite professionnelle de l&#39;enfant</p><h3>"+this.state.afraidToFeelSmth+"</h3>"+
+            "<p>Je ris facilement et vois le bon côté des choses quand à l&#39;avenir de l&#39;enfant</p>" +
+            "<h3>"+this.state.laughWthThem+"</h3>"+
+            "<p>Je me fais du souci pour l&#39;avenir de l&#39;enfant</p>" +
+            "<h3>"+this.state.afraidLifeOfMyChild+"</h3>"+
+            "<p>Je suis de bonne humeur quand je pense à l&#39;enfant</p>" +
+            "<h3>"+this.state.feelHappyThOfThem+"</h3>"+
+            "<p>Je peux rester tranquillement assis(e) à ne rien faire et me sentir décontracté quand\n" +
+            "l&#39;enfant à des choses à faire</p>" +
+            "<h3>"+this.state.feelCoolWhTheyAreBusy+"</h3>"+
+            "<p>J’ai l’impression de fonctionner au ralenti quand à la vie scolaire de mon enfant</p>" +
+            "<h3>"+this.state.slowMotionTheyLife+"</h3>"+
+            "<p>J’éprouve des sensations de peur et j’ai l’estomac noué quand je pense à l&#39;enfant</p>" +
+            "<h3>"+this.state.feelBadWhThksOfThem+"</h3>"+
+            "<p>Je ne m’intéresse plus à l&#39;apparence de l&#39;enfant</p>" +
+            "<h3>"+this.state.dontSeeThAppearance+"</h3>"+
+            "<p>Je me réjouis d’avance à l’idée de la réussite professionnelle de l&#39;enfant</p>" +
+            "<h3>"+this.state.imFeelHappyToThScol+"</h3>"+
+            "<p>Je peux prendre plaisir à discuter de l’avenir et à partager des visions avec l&#39;enfant</p>" +
+            "<h3>"+this.state.imFeelHappyToTalkAbtThem+"</h3>"+
+            "<p>J’ai la capacité financière pour assurer les études supérieures de l’enfant</p>" +
+            "<h3>"+this.state.iCanPayHisScolar+"</h3>"+
+            "<p>Je souhaite l’obtention d’une bourse pour l’enfant</p>" +
+            "<h3>"+this.state.iWantBourseForTh+"</h3>"+
+            "<p>Je dispose de ressources personnelles suffisantes (biens immobiliers, terrains…) qui\n" +
+            "peuvent me permettre de subvenir aux études de l’enfant</p>" +
+            "<h3>"+this.state.iHaveSomeGoods+"</h3>"+
+            "<p>Je pense contracter un emprunt pour payer les études de l’enfant</p>" +
+            "<h3>"+this.state.iThkToTakeAloan+"</h3>"+
+            "<p>Je peux compter sur des appuis au sein de ma famille ou de mes connaissances</p>" +
+            "<h3>"+this.state.iCanCountFamily+"</h3>"+
+            "<p>Je ne souhaite pas m’engager dans des dépenses d’argent</p>" +
+            "<h3>"+this.state.iDontWantToPay+"</h3>";
+
+
+        axios.post("/users/quiz", {
+            userEmail: "fabricesumsa2000@gmail.com",
+            subject: "Quiz phase 1 - parent",
+            container: result
+        }).then(res=>{
+            console.log(res.data.text);
+            if(res.status === 200){alert("Vos informations ont bien été transmises");}
+        })
+            .catch(err=>{
+                if(err.response.status === 409){
+                }
+            });
     };
 
     render() {

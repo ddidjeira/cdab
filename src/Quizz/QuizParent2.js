@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core";
 import MenuBar from "../utils/MenuBar";
-import TextField from "@material-ui/core/TextField/TextField";
-import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel/FormControlLabel";
 import Radio from "@material-ui/core/Radio/Radio";
 import Button from "@material-ui/core/Button";
+import axios from 'axios';
 
 const styles = theme => ({
     container: {
@@ -76,7 +75,52 @@ class QuizParent2 extends Component {
     };
 
     submitAnswers = () => {
-        alert("send userResponse by mail")
+        let result="<p>La qualité essentielle d’un bon parent selon vous : </p>"
+        +"<h3>"+this.state.question1+"</h3>"+
+            "<p>Le secret de la vraie réussite :</p>"
+        +"<h3>"+this.state.question2+"</h3>"+
+            "<p>Votre enfant manque de ……En fonction de votre caractère, à quoi trouvez-vous le plus\n" +
+            "facilement une solution ?</p>"
+        +"<h3>"+this.state.question3+"</h3>"+
+            "<p>Ce que vous voudriez que votre enfant se dise à lui-même avant tout examen important</p>"
+        +"<h3>"+this.state.question4+"</h3>"+
+            "<p>La principale fonction de l’école d’après vous :</p>"
+        +"<h3>"+this.state.question5+"</h3>"+
+            "<p>Les synonymes de savoirs qui vous viennent le plus rapidement à l’esprit :</p>"
+        +"<h3>"+this.state.question6+"</h3>"+
+            "<p>Globalement, vous trouverez que les enseignants et professeurs aujourd’hui…</p>"
+        +"<h3>"+this.state.question7+"</h3>"+
+            "<p>Ce soir, négociation autour des devoirs, vous concluez par un :</p>"
+        +"<h3>"+this.state.question8+"</h3>"+
+            "<p>Une très bonne note arrive. Vos premiers mots ou première réaction :</p>"
+        +"<h3>"+this.state.question9+"</h3>"+
+            "<p>Globalement, vous trouverez qu’à l’heure actuelle, les parents sont trop :</p>"
+        +"<h3>"+this.state.question10+"</h3>"+
+            "<p>Quelle qualité distingue vraiment un bon élève des autres :</p>"
+        +"<h3>"+this.state.question11+"</h3>"+
+            "<p>La remarque qui vous met le plus en colère sur le bulletin de votre enfant :</p>"
+        +"<h3>"+this.state.question12+"</h3>"+
+            "<p>Quel reproche avez-vous déjà ou seriez-vous le plus susceptible d’entendre de la part\n" +
+            "de votre enfant ?</p>"
+        +"<h3>"+this.state.question13+"</h3>"+
+            "<p>Education rime avec :</p>"
+        +"<h3>"+this.state.question14+"</h3>"+
+            "<p>Avoir un avenir professionnel sans études supérieures, c’est :</p>"
+        +"<h3>"+this.state.question15+"</h3>";
+
+        axios.post('/users/quiz', {
+            userEmail: "fabricesumsa2000@gmail.com",
+            subject: "Quiz phase 2 - parent",
+            container: result
+        })
+            .then(res=>{
+                console.log(res.data.text);
+                if(res.status === 200){alert("Vos informations ont bien été transmises");}
+            })
+            .catch(err=>{
+                if(err.response.status === 409){
+                }
+            })
     };
 
     render() {

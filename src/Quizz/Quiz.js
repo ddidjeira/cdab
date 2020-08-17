@@ -7,6 +7,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import axios from 'axios';
 
 const styles = theme => ({
     container: {
@@ -90,23 +91,57 @@ class Quiz extends Component {
         })
     };
 
-    sendResult = () => {
+    sendResult = (e) => {
+        e.preventDefault();
+        let result = "<h3> Nom : "+localStorage.getItem('lastName')+"</h3>" +
+            "<h4> Prénom : "+localStorage.getItem('firstName')+"</h4>" +
+            "<h5> Email : "+localStorage.getItem('email')+"</h5>" +
+            "<h5> Numéro : "+localStorage.getItem('number')+"</h5>" +
+            "<br/><table>\n" +
+            "    <thead>\n" +
+            "        <tr>\n" +
+            "            <th style='border: 1px solid;  background-color: #333; color: white' colspan=\"6\">TRICAM</th>TRICAM</th>\n" +
+            "        </tr>\n" +
+            "    </thead>\n" +
+            "    <tbody>\n" +
+            "        <tr>\n" +
+            "            <td style='border: 1px solid'>Nbre T</td>\n" +
+            "            <td style='border: 1px solid'>Nbre R</td>\n" +
+            "            <td style='border: 1px solid'>Nbre I</td>\n" +
+            "            <td style='border: 1px solid'>Nbre C</td>\n" +
+            "            <td style='border: 1px solid'>Nbre A</td>\n" +
+            "            <td style='border: 1px solid'>Nbre M</td>\n" +
+            "        </tr>\n" +
+            "        <tr>\n" +
+            "              <td style='border: 1px solid'>"+this.state.typeT+"</td>\n" +
+            "              <td style='border: 1px solid'>"+this.state.typeR+"</td>\n" +
+            "              <td style='border: 1px solid'>"+this.state.typeI+"</td>\n" +
+            "              <td style='border: 1px solid'>"+this.state.typeC+"</td>\n" +
+            "              <td style='border: 1px solid'>"+this.state.typeA+"</td>\n" +
+            "              <td style='border: 1px solid'>"+this.state.typeM+"</td>\n" +
+            "          </tr>\n" +
+            "    </tbody>\n" +
+            "</table>";
 
-        alert(
-            "typeT : "+this.state.typeT+
-            "\ntypeR : "+this.state.typeR+
-            "\ntypeI : "+this.state.typeI+
-            "\ntypeC : "+this.state.typeC+
-            "\ntypeA : "+this.state.typeA+
-            "\ntypeM : "+this.state.typeM
-        );
+        axios.post("/users/quiz", {
+            userEmail: "fabricesumsa2000@gmail.com",
+            subject: "Quiz phase 2 - élève",
+            container: result
+        }).then(res=>{
+            console.log(res.data.text);
+            if(res.status === 200){alert("Vos informations ont bien été transmises");}
+        })
+            .catch(err=>{
+                if(err.response.status === 409){
+                }
+            });
     };
 
     sameValues = (arr) => {
         return arr.every((v,i,a)=>v===a[0]);
     };
 
-    finishHandler = () =>{
+    finishHandler = (e) =>{
         const {userAnswer,answer,score,quizEnd,userType,
             typeT,typeR,typeI,typeC,typeA,typeM,personName,
             dreamJob1,dreamJob2,dreamJob3,dreamJob4,dreamJob5
@@ -257,7 +292,7 @@ class Quiz extends Component {
             });
         }
 
-        this.sendResult();
+        this.sendResult(e);
     };
 
     nextQuestionHandler = () => {
@@ -386,7 +421,7 @@ class Quiz extends Component {
                         <h1 style={{color: "#b36233"}}>Questionnaire</h1>
                         <h3>{question}</h3>
                         <span>Question {currentIndex+1} / {QuizData.length}</span>
-                        {currentIndex < 2 &&
+                        {currentIndex < 138 &&
                             options.map((option,index) =>
                                 <div key={option.id} className={this.state.userAnswer === option? classes.questionSelected : classes.questions}
                                      onClick={()=> this.checkAnswer(option,type[index])}
@@ -396,7 +431,7 @@ class Quiz extends Component {
                             )
                         }
 
-                        {currentIndex >= 2 &&
+                        {currentIndex >= 138 &&
                             <div>
                                 <InputLabel id="demo-simple-select-label">Choisissez 5 métiers de vos rêves</InputLabel>
                                 <FormControl className={classes.formControl}>

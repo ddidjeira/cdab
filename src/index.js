@@ -29,7 +29,7 @@ import Quiz1 from "./Quizz/Quiz";
 import Testimonials from "./SubAchievements/Testimonials";
 import {PrivateRoute} from "./utils/PrivateRoute";
 import ActivityReport from "./SubAchievements/ActivityReport";
-import QuizPrincipal from "./Quizz/Quiz2";
+import QuizPrincipal from "./Quizz/QuizPrincipal";
 import QuizParent1 from "./Quizz/QuizParent1";
 import QuizParent2 from "./Quizz/QuizParent2";
 

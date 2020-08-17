@@ -85,11 +85,11 @@ route.post('/login', async (req,res)=>{
 
 route.post('/quiz', async(req,res)=>{
     console.log("-> Sending first quiz...");
-    let userEmail = "fabricesumsa2000@gmail.com";
-    let suject = req.body.suject;
+    let userEmail = req.body.userEmail;
+    let subject = req.body.subject;
     let container = req.body.container;
 
-    console.log(userEmail + ":"+suject+":"+container);
+    console.log(userEmail + ":"+subject+":"+container);
     EmailSender.sendEmail(userEmail,suject,container)
         .then(_res => {
             return res.status(200).json({text : 'Email invalid'});
