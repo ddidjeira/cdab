@@ -17,6 +17,7 @@
     "express": "latest",
     "jwt-simple": "^0.5.6",
     "mongoose": "^5.9.27",
+    "multiselect-react-dropdown": "^1.5.7",
     "nodemon": "^2.0.4",
     "password-hash": "^1.2.2",
     "react": "^16.13.1",

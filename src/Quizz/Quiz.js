@@ -100,7 +100,7 @@ class Quiz extends Component {
             "<br/><table>\n" +
             "    <thead>\n" +
             "        <tr>\n" +
-            "            <th style='border: 1px solid;  background-color: #333; color: white' colspan=\"6\">TRICAM</th>TRICAM</th>\n" +
+            "            <th style='border: 1px solid;  background-color: #333; color: white' colspan=\"6\">TRICAM</th>\n" +
             "        </tr>\n" +
             "    </thead>\n" +
             "    <tbody>\n" +
