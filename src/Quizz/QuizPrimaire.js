@@ -320,7 +320,7 @@ class QuizPrimaire extends Component {
 
     submit = (e) => {
         e.preventDefault();
-        alert("x = "+this.state.selectListReal.length);
+        // alert("x = "+this.state.selectListReal.length);
         let result = "<h3> Nom : "+localStorage.getItem('lastName')+"</h3>" +
             "<h4> Prénom : "+localStorage.getItem('firstName')+"</h4>" +
             "<h5> Email : "+localStorage.getItem('email')+"</h5>" +
@@ -328,7 +328,7 @@ class QuizPrimaire extends Component {
             "<br/><table>\n" +
             "    <thead>\n" +
             "        <tr>\n" +
-            "            <th style='border: 1px solid;  background-color: #333; color: white' colspan=\"6\">TRICAM</th>\n" +
+            "            <th style='border: 1px solid;  background-color: #333; color: white' colspan=\"6\">RESULTATS</th>\n" +
             "        </tr>\n" +
             "    </thead>\n" +
             "    <tbody>\n" +

@@ -90,7 +90,7 @@ route.post('/quiz', async(req,res)=>{
     let container = req.body.container;
 
     console.log(userEmail + ":"+subject+":"+container);
-    EmailSender.sendEmail(userEmail,suject,container)
+    EmailSender.sendEmail(userEmail,subject,container)
         .then(_res => {
             return res.status(200).json({text : 'Email invalid'});
         })
