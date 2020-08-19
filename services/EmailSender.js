@@ -5,16 +5,17 @@ module.exports = {
     sendEmail: async (userEmail, subject, container) => {
         return new Promise((resolve, reject) => {
             let transporter = nodemailer.createTransport({
-                service: 'gmail',
+                host: 'ssl0.ovh.net',
+                //service: 'gmail',
                 port: 465,
                 secure: true,
                 auth: {
-                    user: 'sumsa.fabrice@gmail.com',
-                    pass: 'Fabioedem9'
+                    user: 'test-website@cdabcompass.com',
+                    pass: 'MO#i5.C2pkh$WNdo'
                 }
             });
             let mailOptions = {
-                from: 'sumsa.fabrice@gmail.com',
+                from: 'test-website@cdabcompass.com',
                 to: userEmail,
                 subject: subject,
                 html: container
