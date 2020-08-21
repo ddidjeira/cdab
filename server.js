@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
 const user = require('./routes/User');
+const stripe = require("stripe")("sk_test_51HILWZKSaFVw8gZPp2I4SsKc4P6Fc6MXWCOU7ctY1dGPR5zx5CNrXeQ5xk751CzRiP4JrUSSQZx0xbfiDnB9HiD300mh0s4B78");
+
 
 app.get('/test', (req, res) => {
     res.status(200).send("Test Fab")
@@ -32,5 +34,23 @@ mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
     .catch(err => console.log(err));
 
 app.use('/users',user);
+
+app.post('/pay', async (req,res)=>{
+    const {email,amount} = req.body;
+    let _amount;
+    if(amount === "fr-student-profil"){
+        _amount=5000;
+    }
+    console.log("usermail : "+email);
+    console.log("amount : "+amount);
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: _amount,
+        currency: 'eur',
+        // Verify your integration in this guide by including this parameter
+        metadata: {integration_check: 'accept_a_payment'},
+        receipt_email: email
+    });
+    await res.json({'client_secret': paymentIntent.client_secret})
+});
 
 app.listen(port,() => console.log(`Listen on http://${hostname}:${port}/`));
