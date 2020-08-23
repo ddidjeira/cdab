@@ -42,7 +42,6 @@ class CustomAlert extends Component {
             <div>
                 {color===0 && (
                     <Snackbar
-                        bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'center',
@@ -67,7 +66,6 @@ class CustomAlert extends Component {
                 )}
                 {color===1 &&(
                     <Snackbar
-                        bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
                         anchorOrigin={{
                             vertical: 'bottom',
                             horizontal: 'center',

@@ -68,6 +68,7 @@ function CheckoutForm(props) {
 
     const handleSubmit = async (event) => {
         if (!stripe || !elements) {
+            console.log("str");
             // Stripe.js has not yet loaded.
             // Make sure to disable form submission until Stripe.js has loaded.
             return;
@@ -78,6 +79,7 @@ function CheckoutForm(props) {
         const clientSecret = res.data.client_secret;
 
         const result = await stripe.confirmCardPayment(clientSecret, {
+            receipt_email: email,
             payment_method: {
                 card: elements.getElement(CardElement),
                 billing_details: {
@@ -85,6 +87,8 @@ function CheckoutForm(props) {
                 },
             },
         });
+
+        //console.log("res = "+JSON.stringify(result,null,4));
 
         if (result.error) {
             // Show error to your customer (e.g., insufficient funds)
@@ -98,7 +102,8 @@ function CheckoutForm(props) {
                 console.log('Money is in the bank!');
                 setAlertStyle(true);
                 setOpenAlert(true);
-                setMsgAlert('Votre paiement à été effectué');
+                setMsgAlert('Votre paiement à été effectué, veuillez consulter vos mails');
+                // TODO : check {props.amount} value and set validSold to true
             }
         }
     };
@@ -126,7 +131,6 @@ function CheckoutForm(props) {
                 </div>
             </CardContent>
             <Snackbar
-                bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
                 anchorOrigin={{
                     vertical: 'bottom',
                     horizontal: 'center',

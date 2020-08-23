@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
 const user = require('./routes/User');
-const stripe = require("stripe")("sk_test_51HILWZKSaFVw8gZPp2I4SsKc4P6Fc6MXWCOU7ctY1dGPR5zx5CNrXeQ5xk751CzRiP4JrUSSQZx0xbfiDnB9HiD300mh0s4B78");
+const stripe = require("stripe")("sk_test_51HJF8DBsL4DtxhISvKXTDOT9cRhRrc0g1toW4BNaXs3zJp4QPKkIGtlxkBgEuDcWqQZHmeKcRsRMZPoNV8m2GpmZ00VPAMOfO0");
 
 
 app.get('/test', (req, res) => {
@@ -35,14 +35,18 @@ mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
 
 app.use('/users',user);
 
+function checkMoneyVal(val){
+    if(val === "fr-student-profil"){
+        return 5000;
+    }
+}
+
 app.post('/pay', async (req,res)=>{
     const {email,amount} = req.body;
-    let _amount;
-    if(amount === "fr-student-profil"){
-        _amount=5000;
-    }
+    let _amount = checkMoneyVal(amount);
     console.log("usermail : "+email);
     console.log("amount : "+amount);
+    console.log("price : "+_amount);
     const paymentIntent = await stripe.paymentIntents.create({
         amount: _amount,
         currency: 'eur',
@@ -50,6 +54,7 @@ app.post('/pay', async (req,res)=>{
         metadata: {integration_check: 'accept_a_payment'},
         receipt_email: email
     });
+    console.log("res = "+JSON.stringify(paymentIntent,null,4));
     await res.json({'client_secret': paymentIntent.client_secret})
 });
 

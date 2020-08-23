@@ -150,7 +150,6 @@ class StudentDeposit extends Component {
                         </Modal>
 
                         <Snackbar
-                            bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
                             anchorOrigin={{
                                 vertical: 'bottom',
                                 horizontal: 'center',

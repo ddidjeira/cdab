@@ -140,7 +140,6 @@ class StudentHousing extends Component {
 
 
                         <Snackbar
-                            bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}
                             anchorOrigin={{
                                 vertical: 'bottom',
                                 horizontal: 'center',

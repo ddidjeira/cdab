@@ -4,7 +4,7 @@ import MenuBar from "./MenuBar";
 import {loadStripe} from "@stripe/stripe-js/pure";
 import {Elements} from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
-const stripePromise = loadStripe("pk_test_51HILWZKSaFVw8gZPl6d0THFgVCp7N91IxdM0RWUJIhrQGIMPPcLUw25sfKIKvfmIKcIHofdPOFwc2dd9uy7PunFY00LIWvuZuN");
+const stripePromise = loadStripe("pk_test_51HJF8DBsL4DtxhIS3PTnQGR4fwY9GMKRwaYwNAKY8tKun7lpKqtpaOXIzMdl5lGqEvBF5nao6a5l6jeSWpn5GWbN000KKwgajK");
 
 const styles = theme => ({
     container: {
