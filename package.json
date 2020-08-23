@@ -36,7 +36,10 @@
     "server": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-client": "npm run build",
+    "install-client": "npm install",
+    "heroku-postbuild": "npm run build-client && npm run install-client"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {

@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 5000;
 const hostname = '127.0.0.1';
 const user = require('./routes/User');
+const path = require('path');
+
 const stripe = require("stripe")("sk_test_51HJF8DBsL4DtxhISvKXTDOT9cRhRrc0g1toW4BNaXs3zJp4QPKkIGtlxkBgEuDcWqQZHmeKcRsRMZPoNV8m2GpmZ00VPAMOfO0");
 
 
@@ -57,5 +59,15 @@ app.post('/pay', async (req,res)=>{
     console.log("res = "+JSON.stringify(paymentIntent,null,4));
     await res.json({'client_secret': paymentIntent.client_secret})
 });
+
+// Serve static assets if in production
+if(process.env.NODE_ENV === "production"){
+    // Set static folder
+    app.use(express.static('build'));
+
+    app.get('*', (req,res)=>{
+        res.sendFile(path.resolve(__dirname, '/', 'build', 'index.html'))
+    });
+}
 
 app.listen(port,() => console.log(`Listen on http://${hostname}:${port}/`));
