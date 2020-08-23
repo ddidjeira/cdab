@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 6000;
 const hostname = '127.0.0.1';
 const user = require('./routes/User');
 const path = require('path');
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 // db connexion
 const url = "mongodb+srv://Fabrice:lqfuokPOycyg9zSQ@abloni-mc3d6.mongodb.net/Cdab?retryWrites=true&w=majority";
 // const url = "mongodb://localhost:27017/rchan";
-mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect( process.env.MONGODB_URI || url, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(()=> console.log("MongoDB successfully connected"))
     .catch(err => console.log(err));
 

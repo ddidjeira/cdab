@@ -34,14 +34,15 @@
   "scripts": {
     "start": "react-scripts start",
     "server": "nodemon server.js",
+    "back": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-client": "npm run build",
     "install-client": "npm install",
-    "heroku-postbuild": "npm run build-client && npm run install-client"
+    "heroku-postbuild": "npm run build-client && npm run install-client && npm run back"
   },
-  "proxy": "http://localhost:5000/",
+  "proxy": "http://localhost:6000/",
   "eslintConfig": {
     "extends": "react-app"
   },
