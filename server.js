@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 6000;
+const hostname = '127.0.0.1';
 const user = require('./routes/User');
 const path = require('path');
 
@@ -69,4 +70,4 @@ if(process.env.NODE_ENV === "production"){
     });
 }
 
-app.listen(port,() => console.log(`Listen on http://:${port}/`));
+app.listen(port,() => console.log(`Listen on http://${hostname}:${port}/`));
