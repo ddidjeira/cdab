@@ -42,7 +42,7 @@
     "install-client": "npm install",
     "heroku-postbuild": "npm run build-client && npm run install-client && npm run back"
   },
-  "proxy": "http://localhost:6000/",
+  "proxy": "http://localhost:5000/",
   "eslintConfig": {
     "extends": "react-app"
   },
