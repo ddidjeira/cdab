@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const mongoose = require('mongoose');
 const port = process.env.PORT || 5000;
-const hostname = '127.0.0.1';
+const hostname = '0.0.0.0';
 const user = require('./routes/User');
 const path = require('path');
 
@@ -66,7 +66,7 @@ if(process.env.NODE_ENV === "production"){
     app.use(express.static('build'));
 
     app.get('*', (req,res)=>{
-        res.sendFile(path.resolve(__dirname, '/', 'build', 'index.html'))
+        res.sendFile(path.join(__dirname, '../build/index.html'))
     });
 }
 
