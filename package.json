@@ -40,7 +40,7 @@
     "eject": "react-scripts eject",
     "build-client": "npm run build",
     "install-client": "npm install",
-    "heroku-postbuild": "npm run build-client && npm run install-client && npm run back"
+    "heroku-postbuild": "npm run build-client && npm run install-client && npm run back && npm run start"
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
